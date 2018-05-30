@@ -35,7 +35,7 @@ public class ImagePanel extends JPanel {
 	 * @param image
 	 *            image to set.
 	 */
-	public void setImage(BufferedImage image) {
+	public void setImage(BufferedImage image) {//parameter image is ChessPieceSprite Image
 		this.image = image;
 	}
 
