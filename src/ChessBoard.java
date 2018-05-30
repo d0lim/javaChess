@@ -2,6 +2,8 @@ import javax.swing.*;
 
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 public class ChessBoard {
@@ -23,6 +25,7 @@ public class ChessBoard {
 
     void makeBoard(ImagePanel boardPanel, int type) {
         if(type == 1) {
+            Piece testPiece = new Piece();
             boardPanel.setSize(575, 575);
             boardPanel.setLayout(new GridLayout(8, 8));
             ImagePanel[][] boardPiece = new ImagePanel[8] [8];
@@ -31,6 +34,42 @@ public class ChessBoard {
                     boardPiece[i][j] = new ImagePanel();
                     boardPiece[i][j].setSize(575 / 8, 575 / 8);
                     boardPiece[i][j].setOpaque(true);
+                    boardPiece[i][j].addMouseListener(new MouseListener(){
+                
+                        Color bufferColor = new Color(10, 10, 10);
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+                            JPanel p = (JPanel)e.getSource();
+                            p.setBackground(bufferColor);
+                            System.out.println("MouseExited");
+                        }
+                    
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+                            JPanel p = (JPanel)e.getSource();
+                            bufferColor = p.getBackground();
+                            p.setBackground(Color.GREEN);
+                            System.out.println("MouseEntered");
+                        }
+                    
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            JPanel p = (JPanel)e.getSource();
+                            p.setBackground(Color.DARK_GRAY);
+                            System.out.println("MouseClicked");
+                            testPiece.move((ImagePanel) p, boardPiece);
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+                    });
                     
                 }
             }
