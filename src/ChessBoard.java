@@ -33,7 +33,28 @@ public class ChessBoard {
                 for(int j = 0; j < 8; ++j) {
                     boardPiece[i][j] = new ImagePanel();
                     boardPiece[i][j].setSize(575 / 8, 575 / 8);
-                    boardPiece[i][j].setOpaque(true);
+                    boardPiece[i][j].setOpaque(true);    
+                }
+            }
+
+            for(int i = 0; i < 8; i++) {
+                for(int j = 0; j < 8; j++) {
+                    if((j + i) % 2 == 0)
+                        boardPiece[i][j].setBackground(new Color(254, 253, 207));
+                    else
+                        boardPiece[i][j].setBackground(new Color(242, 157, 76));
+                }
+            }
+
+            resetPiece(boardPiece, 1);
+            
+            for(int i = 0; i < 8; i++) {
+                for(int j = 0; j < 8; j++) {
+                    boardPanel.add(boardPiece[i][j]);
+                }
+            }
+            for(int i = 0; i < 8; i++) {
+                for(int j = 0; j < 8; j++) {
                     boardPiece[i][j].addMouseListener(new MouseListener(){
                 
                         Color bufferColor = new Color(10, 10, 10);
@@ -70,26 +91,10 @@ public class ChessBoard {
 
                         }
                     });
-                    
                 }
             }
 
-            for(int i = 0; i < 8; i++) {
-                for(int j = 0; j < 8; j++) {
-                    if((j + i) % 2 == 0)
-                        boardPiece[i][j].setBackground(new Color(254, 253, 207));
-                    else
-                        boardPiece[i][j].setBackground(new Color(242, 157, 76));
-                }
-            }
 
-            resetPiece(boardPiece, 1);
-            
-            for(int i = 0; i < 8; i++) {
-                for(int j = 0; j < 8; j++) {
-                    boardPanel.add(boardPiece[i][j]);
-                }
-            }
             
         }
 
