@@ -1,4 +1,6 @@
-import java.awt.image.BufferedImage;
+package chessDemo;
+
+import chessDemo.ChessPanel;
 
 public class MoveManager {
 

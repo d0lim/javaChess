@@ -1,6 +1,4 @@
-
-
-import java.awt.event.MouseAdapter;
+package chessDemo;
 
 public class GameManager {
 	static BoardMouseController boardMouseController = new BoardMouseController();

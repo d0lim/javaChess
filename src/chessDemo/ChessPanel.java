@@ -1,6 +1,8 @@
+package chessDemo;
+
 import java.awt.image.BufferedImage;
 
-public class ChessPanel extends ImagePanel{
+public class ChessPanel extends ImagePanel {
 	Piece piece;
 	private Coordinate c = new Coordinate();
 	BufferedImage image;

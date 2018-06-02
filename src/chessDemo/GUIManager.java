@@ -1,3 +1,5 @@
+package chessDemo;
+
 import javax.swing.*;
 
 public class GUIManager {

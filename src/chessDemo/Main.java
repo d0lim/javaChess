@@ -1,4 +1,6 @@
+package chessDemo;
 
+import chessDemo.Chess_1;
 
 public class Main {
 	

@@ -1,3 +1,5 @@
+package chessDemo;
+
 import java.awt.image.BufferedImage;
 
 public class Pawn extends Piece {

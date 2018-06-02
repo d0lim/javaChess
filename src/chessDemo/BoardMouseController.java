@@ -1,3 +1,5 @@
+package chessDemo;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -6,6 +8,7 @@ import javafx.event.Event;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 import static com.sun.java.accessibility.util.AWTEventMonitor.removeMouseListener;
+
 
 
 

@@ -1,4 +1,4 @@
-
+package chessDemo;
 
 
 import java.awt.BorderLayout;

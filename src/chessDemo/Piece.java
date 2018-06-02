@@ -1,3 +1,4 @@
+package chessDemo;
 
 import javax.swing.*;
 import java.awt.*;
