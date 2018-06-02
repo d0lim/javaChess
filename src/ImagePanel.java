@@ -1,3 +1,5 @@
+
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+
 /**
  * ImagePanel is JPanel variant for displaying BufferedImage
  * <p>
@@ -19,7 +22,7 @@ import javax.swing.JPanel;
  * @see BufferedImage
  * @author LeNerd
  * @since 2018-05-23
- */
+ */ 
 public class ImagePanel extends JPanel {
 	private static final long serialVersionUID = 1241885397633460571L;
 
@@ -35,7 +38,7 @@ public class ImagePanel extends JPanel {
 	 * @param image
 	 *            image to set.
 	 */
-	public void setImage(BufferedImage image) {//parameter image is ChessPieceSprite Image
+	public void setImage(BufferedImage image) {
 		this.image = image;
 	}
 
@@ -70,6 +73,14 @@ public class ImagePanel extends JPanel {
 			int w = (int)(image.getWidth()*r);
 			int h = (int)(image.getHeight()*r);
 			g.drawImage(image, (getWidth()-w)/2,(getHeight()-h)/2,w,h, this);
+
+		
 		}
 	}
 }
+
+
+
+
+
+
