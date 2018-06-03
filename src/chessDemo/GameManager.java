@@ -67,7 +67,7 @@ public class GameManager {
 	    boardPiece[0][5].setPiece(black_bishop2, 1);
 	    boardPiece[0][3].setPiece(black_queen, 1);
 	    boardPiece[0][4].setPiece(black_king, 1);
-	    boardPiece[0][4].isKing[1] = true;
+	    boardPiece[0][4].setIsKing(1);
 	    boardPiece[6][0].setPiece(white_pawn1, 0);
 		boardPiece[6][1].setPiece(white_pawn2, 0);
 		boardPiece[6][2].setPiece(white_pawn3, 0);
@@ -84,6 +84,6 @@ public class GameManager {
 	    boardPiece[7][5].setPiece(white_bishop2, 0);
 	    boardPiece[7][3].setPiece(white_queen, 0);
 	    boardPiece[7][4].setPiece(white_king, 0);
-		boardPiece[7][4].isKing[1] = true;
+		boardPiece[7][4].setIsKing(0);
 	}
 }

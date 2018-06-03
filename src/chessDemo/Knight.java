@@ -54,44 +54,35 @@ public class Knight extends Piece {
 			for(int k = 0; k < 4; k++) {
 				if(k == 0)
 					continue;
-				for (int i = -1; i < 2; i += 2) {
-					for (int j = -1; j < 2; j += 2) {
-						try {
-							if (boardPiece[panelC.x+i][panelC.y+2*j].isKing[k] == true)
-								return true;
-						}
-						catch (ArrayIndexOutOfBoundsException a) {}
-						try {
-							if (boardPiece[panelC.x+2*i][panelC.y+j].isKing[k] == true)
-								return true;
-
-						} catch (ArrayIndexOutOfBoundsException a) {}
-						// TODO Auto-generated method stub
-					}
-				}
-			}
+                if (knightCheck(boardPiece, panelC, k)) return true;
+            }
 		}
 		if(this.team == 1) {
 			for(int k = 0; k < 4; k++) {
 				if(k == 1)
 					continue;
-				for (int i = -1; i < 2; i += 2) {
-					for (int j = -1; j < 2; j += 2) {
-						try {
-							if (boardPiece[panelC.x+i][panelC.y+2*j].isKing[k] == true)
-								return true;
-						}
-						catch (ArrayIndexOutOfBoundsException a) {}
-						try {
-							if (boardPiece[panelC.x+2*i][panelC.y+j].isKing[k] == true)
-								return true;
-
-						} catch (ArrayIndexOutOfBoundsException a) {}
-						// TODO Auto-generated method stub
-					}
-				}
-			}
+                if (knightCheck(boardPiece, panelC, k)) return true;
+            }
 		}
 		return false;
 	}
+
+    private boolean knightCheck(ChessPanel[][] boardPiece, Coordinate panelC, int k) {
+        for (int i = -1; i < 2; i += 2) {
+            for (int j = -1; j < 2; j += 2) {
+                try {
+                    if (boardPiece[panelC.x+i][panelC.y+2*j].isKing[k])
+                        return true;
+                }
+                catch (ArrayIndexOutOfBoundsException ignored) {}
+                try {
+                    if (boardPiece[panelC.x+2*i][panelC.y+j].isKing[k])
+                        return true;
+
+                } catch (ArrayIndexOutOfBoundsException ignored) {}
+                // TODO Auto-generated method stub
+            }
+        }
+        return false;
+    }
 }

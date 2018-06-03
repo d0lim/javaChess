@@ -88,13 +88,13 @@ public class Pawn extends Piece {
 		        if(i == 0)
 		            continue;
 		        try {
-                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i] == true)
+                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i])
                         return true;
-                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i] == true)
+                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i])
                         return true;
                     else
                         return false;
-                } catch (ArrayIndexOutOfBoundsException a) {}
+                } catch (ArrayIndexOutOfBoundsException ignored) {}
 
             }
 
@@ -104,13 +104,13 @@ public class Pawn extends Piece {
                 if(i == 1)
                     continue;
                 try {
-                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i] == true)
+                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i])
                         return true;
-                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i] == true)
+                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i])
                         return true;
                     else
                         return false;
-                } catch (ArrayIndexOutOfBoundsException a) {}
+                } catch (ArrayIndexOutOfBoundsException ignored) {}
 
             }
         }
