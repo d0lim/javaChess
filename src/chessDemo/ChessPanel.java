@@ -10,17 +10,17 @@ public class ChessPanel extends ImagePanel {
 	public void setPiece(Piece piece, int team)
 	{
         this.piece = piece;
-		if(this.piece != null) {
-		    piece.team = team;
-            image = piece.imageSetting(team);
+		piece.team = team;
+        image = piece.imageSetting(team);
 
-            setImage(image);
-        }
-		else
-            setImage(null);
-
+        setImage(image);
 	}
-	
+	public void resetPiece()
+	{
+		image = null;
+		setImage(null);
+		this.piece = null;
+	}
 	public Piece getPiece()
 	{
 		return piece;
@@ -40,7 +40,4 @@ public class ChessPanel extends ImagePanel {
 	{
 		return c;
 	}
-	
-	
-	
 }

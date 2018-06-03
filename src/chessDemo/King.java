@@ -14,7 +14,7 @@ public class King extends Piece implements Highlight {
 		return image1;
 	}
 	@Override
-	public void highlight() {
+	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {
 		// TODO Auto-generated method stub
 		
 	}

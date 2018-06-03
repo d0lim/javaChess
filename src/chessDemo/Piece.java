@@ -11,20 +11,15 @@ public abstract class Piece implements Highlight {
 
 	int team;
 	boolean alive = true;
-
-
-
-
+	
 	void haveAttacked() {
 	    alive = false;
     }
+	
 
     abstract BufferedImage imageSetting(int team);
 	@Override
-	public void highlight() {
-		
-	}
-
+	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {}
 }
         
      

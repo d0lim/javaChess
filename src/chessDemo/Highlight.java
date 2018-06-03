@@ -1,5 +1,5 @@
 package chessDemo;
 
 public interface Highlight {
-    public void highlight();
+    public void highlight(ChessPanel[][] boardPiece, Coordinate c);
 }

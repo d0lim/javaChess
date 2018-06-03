@@ -11,6 +11,7 @@ public class ChessBoard {
     private int i, j;
     ChessPanel boardPanel = new ChessPanel();
     ChessPanel[][] boardPiece = new ChessPanel[8][8];
+
     public ChessPanel makeBoard() {
 
             boardPanel.setSize(575, 575);
@@ -22,9 +23,9 @@ public class ChessBoard {
                     boardPiece[i][j].setSize(575 / 8, 575 / 8);
                     boardPiece[i][j].setOpaque(true);
                     if((j + i) % 2 == 0)
-                        boardPiece[i][j].setBackground(new Color(254, 253, 207));
+                        boardPiece[i][j].setBackground(new Color(219, 219, 219));
                     else
-                        boardPiece[i][j].setBackground(new Color(242, 157, 76));
+                        boardPiece[i][j].setBackground(new Color(156, 156, 156));
 
                     boardPanel.add(boardPiece[i][j]);
 

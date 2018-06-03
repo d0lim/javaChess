@@ -54,7 +54,7 @@ public class ChessPieceSprite {
 
 	private ChessPieceSprite() {
 		try {
-			imgAtlas = ImageIO.read(new File("/Users/limdongyoung/IdeaProjects/javaChess/src/sprite2.png"));
+			imgAtlas = ImageIO.read(new File("/Users/limdongyoung/Downloads/javaChess/src/sprite2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
