@@ -28,6 +28,7 @@ public class MoveManager {
 	}
 
 	public void move(int sequence, Coordinate destinationC) {
+	    int turn;
 		CheckCheck checkInstance = CheckCheck.getInstance();
 		if (sequence == 1)
 		{
@@ -38,8 +39,11 @@ public class MoveManager {
 						boardPiece[i][j].removeMouseListener(GameManager.boardMouseController);
 				}
 			}
-			boardPiece[selectedCoordinate.x][selectedCoordinate.y].piece.highlight(boardPiece, selectedCoordinate);
 
+
+
+			boardPiece[selectedCoordinate.x][selectedCoordinate.y].piece.highlight(boardPiece, selectedCoordinate);
+            System.out.print("\nThe Highlighting has completed..!\n");
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
 					boardPiece[i][j].addMouseListener(GameManager.pieceMouseController);
@@ -47,7 +51,11 @@ public class MoveManager {
 			}
 		}
 		else if(sequence == 2) {
-
+            turn = TurnManager.turn;
+            if(boardPiece[selectedCoordinate.x][selectedCoordinate.y].isKing[turn]) {
+                boardPiece[selectedCoordinate.x][selectedCoordinate.y].notKing();
+                boardPiece[destinationC.x][destinationC.y].setIsKing(turn);
+            }
 
             removePMC();
             Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();
