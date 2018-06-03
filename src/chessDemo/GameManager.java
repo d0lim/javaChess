@@ -1,5 +1,7 @@
 package chessDemo;
 
+import piecesPackage.*;
+
 public class GameManager {
 	static BoardMouseController boardMouseController = new BoardMouseController();
 	static PieceMouseController pieceMouseController = new PieceMouseController();
@@ -13,7 +15,6 @@ public class GameManager {
         }
     }
 
-    
 	Pawn white_pawn1 = new Pawn();
 	Pawn white_pawn2 = new Pawn();
 	Pawn white_pawn3 = new Pawn();

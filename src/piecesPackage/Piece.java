@@ -1,15 +1,14 @@
-package chessDemo;
+package piecesPackage;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import chessDemo.ChessPanel;
+import chessDemo.Coordinate;
+
 import java.awt.image.BufferedImage;
 
 public abstract class Piece implements Highlight, CheckPath {
 	//constructor!!!!
 
-	int team;
+	public int team;
 	boolean alive = true;
 	
 	void haveAttacked() {
@@ -17,7 +16,7 @@ public abstract class Piece implements Highlight, CheckPath {
     }
 	
 
-    abstract BufferedImage imageSetting(int team);
+    public abstract BufferedImage imageSetting(int team);
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {}
 }

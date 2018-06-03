@@ -1,13 +1,15 @@
 package chessDemo;
 
+import piecesPackage.Piece;
+
 import java.awt.image.BufferedImage;
 
 public class ChessPanel extends ImagePanel {
-	Piece piece;
-	private Coordinate c = new Coordinate();
-	BufferedImage image;
-	boolean[] isKing = {false, false, false, false};
-	boolean[] movable = {false, false, false, false};
+	public Piece piece;
+	public Coordinate c = new Coordinate();
+	public BufferedImage image;
+	public boolean[] isKing = {false, false, false, false};
+	public boolean[] movable = {false, false, false, false};
 	
 	public void setPiece(Piece piece, int team)
 	{

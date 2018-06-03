@@ -1,4 +1,8 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.ChessPieceSprite;
+import chessDemo.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -6,7 +10,7 @@ import java.awt.image.BufferedImage;
 public class Queen extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
 	
-	BufferedImage imageSetting(int team)
+	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -50,8 +54,6 @@ public class Queen extends Piece {
 				}
 			} catch (ArrayIndexOutOfBoundsException a) {};
 		}
-
-		//upper is bishop part
 		for(int i=-1 ; i<2 ; i+=2)
 		{
 			try {
@@ -97,15 +99,18 @@ public class Queen extends Piece {
                     try {
                         for(int j=1;;j++)
                         {
+
                             if(boardPiece[panelC.x+(i)*j][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 0 bishop 0");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
                             }
 
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -113,15 +118,18 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y-(i)*j].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y-(i)*j].isKing[k] == true) {
+                                if(boardPiece[panelC.x + (i) * j][panelC.y - (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 0 bishop 1");
                                     return true;
                                 }
+                                //when code goes into else, then the method do not judge other location.
                                 else
-                                    return false;
+                                    break;
+
                             }
-                            return true;
+
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -129,13 +137,16 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y].isKing[k]) {
+                                    System.out.println("Quuen Made Check team 0 rook 1");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
+
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -143,13 +154,16 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 0 rook 2");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
+
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
             }
         }
@@ -163,14 +177,18 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 1 bishop 0");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
+
+
                             }
 
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -178,15 +196,17 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y-(i)*j].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y-(i)*j].isKing[k] == true) {
+                                if(boardPiece[panelC.x + (i) * j][panelC.y - (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 1 bishop 1");
                                     return true;
                                 }
                                 else
-                                    return false;
+                                    break;
+
                             }
-                            return true;
+
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -194,13 +214,16 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y].isKing[k]) {
+                                    System.out.println("Quuen Made Check team 1 rook 1");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
+
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -208,13 +231,16 @@ public class Queen extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Queen Made Check team 1 rook 2");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
+
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
             }
         }

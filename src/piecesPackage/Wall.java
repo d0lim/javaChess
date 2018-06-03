@@ -1,4 +1,7 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.Coordinate;
 
 import java.awt.image.BufferedImage;
 
@@ -14,7 +17,7 @@ public class Wall extends Piece{
     }
 
     @Override
-    BufferedImage imageSetting(int team) {
+    public BufferedImage imageSetting(int team) {
         return null;
     }
 

@@ -1,11 +1,15 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.ChessPieceSprite;
+import chessDemo.Coordinate;
 
 import java.awt.image.BufferedImage;
 
 public class King extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
 
-	BufferedImage imageSetting(int team) {
+	public BufferedImage imageSetting(int team) {
 		BufferedImage image1 = null;
 		if (team == 0)
 			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_KING);

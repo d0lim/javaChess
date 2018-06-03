@@ -1,4 +1,8 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.ChessPieceSprite;
+import chessDemo.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -6,7 +10,7 @@ import java.awt.image.BufferedImage;
 public class Knight extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
 	
-	BufferedImage imageSetting(int team)
+	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -54,14 +58,20 @@ public class Knight extends Piece {
 			for(int k = 0; k < 4; k++) {
 				if(k == 0)
 					continue;
-                if (knightCheck(boardPiece, panelC, k)) return true;
+                if (knightCheck(boardPiece, panelC, k)) {
+                    System.out.println("Knight made Check team 0");
+                    return true;
+                }
             }
 		}
 		if(this.team == 1) {
 			for(int k = 0; k < 4; k++) {
 				if(k == 1)
 					continue;
-                if (knightCheck(boardPiece, panelC, k)) return true;
+                if (knightCheck(boardPiece, panelC, k)) {
+                    System.out.println("Knight made Check team 1");
+                    return true;
+                }
             }
 		}
 		return false;

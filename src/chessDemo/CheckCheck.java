@@ -17,9 +17,17 @@ public class CheckCheck {
                 if(boardPiece[i][j].piece != null) {
                     Coordinate c = new Coordinate(i, j);
 
-                    if(boardPiece[i][j].piece.checkPath(boardPiece, c) == true) {
-                        System.out.println("Check!! made by [" + c.x + "][" + c.y + "]");
+                    if(boardPiece[i][j].piece.checkPath(boardPiece, c)) {
+                        String name = boardPiece[i][j].piece.getClass().getName();
+                        System.out.println();
+                        System.out.println(name + " have made Check!!");
+                        System.out.println();
                     }
+                    else {
+                        String name = boardPiece[i][j].piece.getClass().getName();
+                        System.out.println(name + " do not make Check!");
+                    }
+
                 }
             }
         }

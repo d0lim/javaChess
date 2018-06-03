@@ -2,7 +2,7 @@ package chessDemo;
 
 import java.awt.Color;
 
-import chessDemo.ChessPanel;
+import piecesPackage.Piece;
 
 public class MoveManager {
 
@@ -51,7 +51,9 @@ public class MoveManager {
 
             removePMC();
             Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();
+            System.out.println("Moving Piece is " + bPiece.getClass().getName() + " and its team is " + bPiece.team);
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].resetPiece();
+            boardPiece[destinationC.x][destinationC.y].resetPiece();
 			boardPiece[destinationC.x][destinationC.y].setPiece(bPiece, bPiece.team);
 
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(false);

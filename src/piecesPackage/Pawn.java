@@ -1,4 +1,8 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.ChessPieceSprite;
+import chessDemo.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -7,7 +11,7 @@ public class Pawn extends Piece {
 
     ChessPieceSprite instance = ChessPieceSprite.getInstace();
 	
-	BufferedImage imageSetting(int team)
+	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -88,10 +92,16 @@ public class Pawn extends Piece {
 		        if(i == 0)
 		            continue;
 		        try {
-                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i])
+                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 0");
                         return true;
-                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i])
+                    }
+
+                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 0");
                         return true;
+                    }
+
                     else
                         return false;
                 } catch (ArrayIndexOutOfBoundsException ignored) {}
@@ -104,10 +114,16 @@ public class Pawn extends Piece {
                 if(i == 1)
                     continue;
                 try {
-                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i])
+                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 1");
                         return true;
-                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i])
+                    }
+
+                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 1");
                         return true;
+                    }
+
                     else
                         return false;
                 } catch (ArrayIndexOutOfBoundsException ignored) {}

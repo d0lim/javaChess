@@ -1,4 +1,8 @@
-package chessDemo;
+package piecesPackage;
+
+import chessDemo.ChessPanel;
+import chessDemo.ChessPieceSprite;
+import chessDemo.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -6,7 +10,7 @@ import java.awt.image.BufferedImage;
 public class Rook extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
 	
-	BufferedImage imageSetting(int team)
+	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -16,7 +20,7 @@ public class Rook extends Piece {
 		return image1;
 	}
 	@Override
-	public void highlight(ChessPanel[][] boardPiece, Coordinate c) 
+	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
 	{
 		for(int i=-1 ; i<2 ; i+=2)
 		{
@@ -64,13 +68,15 @@ public class Rook extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y].isKing[k]) {
+                                    System.out.println("Rook Made Check team 0");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -78,13 +84,15 @@ public class Rook extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Rook Made Check team 0");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
             }
         }
@@ -98,13 +106,15 @@ public class Rook extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
-                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                if(boardPiece[panelC.x + (i) * j][panelC.y].isKing[k]) {
+                                    System.out.println("Rook Made Check team 1");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
                 for(int i=-1 ; i<2 ; i+=2)
                 {
@@ -112,13 +122,15 @@ public class Rook extends Piece {
                         for(int j=1;;j++)
                         {
                             if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
-                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                if(boardPiece[panelC.x][panelC.y + (i) * j].isKing[k]) {
+                                    System.out.println("Rook Made Check team 1");
                                     return true;
+                                }
                                 else
-                                    return false;
+                                    break;
                             }
                         }
-                    } catch (ArrayIndexOutOfBoundsException a) {};
+                    } catch (ArrayIndexOutOfBoundsException ignored) {}
                 }
             }
         }
