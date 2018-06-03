@@ -10,9 +10,9 @@ public class Pawn extends Piece {
 	BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
-		if(team == 1)
+		if(team == 0)
 			return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
-		else if(team == 2)
+		else if(team == 1)
 			return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
 		else {
             System.out.println("There's Error~ Fuck you~");
@@ -24,7 +24,7 @@ public class Pawn extends Piece {
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
 	{
-		if (this.team == 1) {
+		if (this.team == 0) {
 
 
             if (boardPiece[c.x-1][c.y].image == null) {
@@ -36,11 +36,11 @@ public class Pawn extends Piece {
 
 
 			try {
-				if (boardPiece[c.x-1][c.y+1].image != null && boardPiece[c.x-1][c.y+1].piece.team % 2 == 0)
+				if (boardPiece[c.x-1][c.y+1].image != null && boardPiece[c.x-1][c.y+1].piece.team % 2 == 1)
 					boardPiece[c.x-1][c.y+1].setBackground(new Color(255, 97, 160));
 			} catch (ArrayIndexOutOfBoundsException a) {}
 			try {
-				if (boardPiece[c.x-1][c.y-1].image != null && boardPiece[c.x-1][c.y-1].piece.team % 2 == 0)
+				if (boardPiece[c.x-1][c.y-1].image != null && boardPiece[c.x-1][c.y-1].piece.team % 2 == 1)
 					boardPiece[c.x-1][c.y-1].setBackground(new Color(255, 97, 160));
 			} catch (ArrayIndexOutOfBoundsException a) {}
 
@@ -52,7 +52,7 @@ public class Pawn extends Piece {
 				// case of en passant
 			}
 		}
-		else if(this.team == 2)
+		else if(this.team == 1)
 		{
 
             if (boardPiece[c.x+1][c.y].image == null) {
@@ -62,11 +62,11 @@ public class Pawn extends Piece {
             }
 
 			try {
-				if (boardPiece[c.x+1][c.y+1].image != null && boardPiece[c.x+1][c.y+1].piece.team % 2 == 1)
+				if (boardPiece[c.x+1][c.y+1].image != null && boardPiece[c.x+1][c.y+1].piece.team % 2 == 0)
 					boardPiece[c.x+1][c.y+1].setBackground(new Color(255, 97, 160));
 			} catch (ArrayIndexOutOfBoundsException a) {}
 			try {
-				if (boardPiece[c.x+1][c.y-1].image != null && boardPiece[c.x+1][c.y-1].piece.team % 2 == 1)
+				if (boardPiece[c.x+1][c.y-1].image != null && boardPiece[c.x+1][c.y-1].piece.team % 2 == 0)
 					boardPiece[c.x+1][c.y-1].setBackground(new Color(255, 97, 160));
 			} catch (ArrayIndexOutOfBoundsException a) {}
 			if(c.x == 6) { 
@@ -80,4 +80,41 @@ public class Pawn extends Piece {
 		else {}  // case of 2vs2
 
 	}
+
+	@Override
+	public boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC) {
+		if(this.team == 0) {
+		    for(int i = 0; i < 4; i++) {
+		        if(i == 0)
+		            continue;
+		        try {
+                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i] == true)
+                        return true;
+                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i] == true)
+                        return true;
+                    else
+                        return false;
+                } catch (ArrayIndexOutOfBoundsException a) {}
+
+            }
+
+        }
+	    else if(this.team == 1) {
+            for(int i = 0; i < 4; i++) {
+                if(i == 1)
+                    continue;
+                try {
+                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i] == true)
+                        return true;
+                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i] == true)
+                        return true;
+                    else
+                        return false;
+                } catch (ArrayIndexOutOfBoundsException a) {}
+
+            }
+        }
+
+        return false;
+    }
 }

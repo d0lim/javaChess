@@ -3,15 +3,15 @@ package chessDemo;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-public class Rook extends Piece implements Highlight {
+public class Rook extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
 	
 	BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
-		if(team == 1)
+		if(team == 0)
 			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_LOOK);
-		else if(team == 2)
+		else if(team == 1)
 			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_LOOK);
 		return image1;
 	}
@@ -50,5 +50,79 @@ public class Rook extends Piece implements Highlight {
 				}
 			} catch (ArrayIndexOutOfBoundsException a) {};
 		}
+	}
+
+	@Override
+	public boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC) {
+        if(this.team == 0) {
+            for(int k = 0; k < 4; k++) {
+                if(k == 0)
+                    continue;
+                for(int i=-1 ; i<2 ; i+=2)
+                {
+                    try {
+                        for(int j=1;;j++)
+                        {
+                            if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
+                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+                    } catch (ArrayIndexOutOfBoundsException a) {};
+                }
+                for(int i=-1 ; i<2 ; i+=2)
+                {
+                    try {
+                        for(int j=1;;j++)
+                        {
+                            if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
+                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+                    } catch (ArrayIndexOutOfBoundsException a) {};
+                }
+            }
+        }
+        else if(this.team == 1) {
+            for(int k = 0; k < 4; k++) {
+                if(k == 1)
+                    continue;
+                for(int i=-1 ; i<2 ; i+=2)
+                {
+                    try {
+                        for(int j=1;;j++)
+                        {
+                            if(boardPiece[panelC.x+(i)*j][panelC.y].piece != null) {
+                                if(boardPiece[panelC.x+(i)*j][panelC.y].isKing[k] == true)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+                    } catch (ArrayIndexOutOfBoundsException a) {};
+                }
+                for(int i=-1 ; i<2 ; i+=2)
+                {
+                    try {
+                        for(int j=1;;j++)
+                        {
+                            if(boardPiece[panelC.x][panelC.y+(i)*j].piece != null) {
+                                if(boardPiece[panelC.x][panelC.y+(i)*j].isKing[k] == true)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+                    } catch (ArrayIndexOutOfBoundsException a) {};
+                }
+            }
+        }
+
+		return false;
 	}
 }

@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
-public abstract class Piece implements Highlight {
+public abstract class Piece implements Highlight, CheckPath {
 	//constructor!!!!
 
 	int team;

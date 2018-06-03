@@ -28,7 +28,7 @@ public class PieceMouseController implements MouseListener {
             System.out.println("Unfortunately, that was not a Destination!!");
             instance.move(3, null);
         }
-
+        
     }
 
     @Override

@@ -7,7 +7,7 @@ import chessDemo.ChessPanel;
 public class MoveManager {
 
 	private static MoveManager instance = new MoveManager();
-
+	TurnManager turnChecker = new TurnManager();
 	private MoveManager() {
 		System.out.println("Loading MoveManager instance");
 	}
@@ -28,7 +28,7 @@ public class MoveManager {
 	}
 
 	public void move(int sequence, Coordinate destinationC) {
-
+		CheckCheck checkInstance = CheckCheck.getInstance();
 		if (sequence == 1)
 		{
 			System.out.println("Sequence 1 entered");
@@ -53,11 +53,17 @@ public class MoveManager {
             Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].resetPiece();
 			boardPiece[destinationC.x][destinationC.y].setPiece(bPiece, bPiece.team);
+
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(false);
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(true);
 			boardPiece[destinationC.x][destinationC.y].setVisible(false);
 			boardPiece[destinationC.x][destinationC.y].setVisible(true);
 
+			System.out.println("Check judgement started");
+			checkInstance.checkCheck(boardPiece);
+
+			turnChecker.nextTurn();
+			turnChecker.turnCheck();
 			reInsertBMC();
 
 			System.out.println("reInsert Listener Completed");

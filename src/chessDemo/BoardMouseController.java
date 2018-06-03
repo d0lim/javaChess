@@ -5,8 +5,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javafx.event.Event;
-
 import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 import static com.sun.java.accessibility.util.AWTEventMonitor.removeMouseListener;
 
@@ -15,7 +13,7 @@ import static com.sun.java.accessibility.util.AWTEventMonitor.removeMouseListene
 
 public class BoardMouseController implements MouseListener{
 
-
+	TurnManager turnChecker = new TurnManager();
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -25,14 +23,16 @@ public class BoardMouseController implements MouseListener{
     @Override
     public void mousePressed(MouseEvent e) {
     	System.out.println("Start Point Clicked");
+    	MoveManager instance = MoveManager.getInstance();
         ChessPanel selectedPanel = (ChessPanel)e.getSource();
-        selectedPanel.setBackground(new Color(255, 248, 81));
-        
-        MoveManager instance = MoveManager.getInstance();
-        Coordinate c = selectedPanel.getIndex();
-        System.out.println("x is : " + c.x + ", y is " + c.y);
-        instance.setPiece(c);
-        instance.move(1, null);
+        if(turnChecker.turn == selectedPanel.piece.team) {
+            selectedPanel.setBackground(new Color(255, 248, 81));
+            Coordinate c = selectedPanel.getIndex();
+            System.out.println("x is : " + c.x + ", y is " + c.y);
+            instance.setPiece(c);
+            instance.move(1, null);
+        }
+
     }
 
     @Override
