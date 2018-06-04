@@ -32,14 +32,13 @@ public class Chess_1 extends JFrame {
 		main.setOpaque(true);
 		oneGame.setOpaque(true);
 
-
 		setTitle("CHESS");
 		setSize(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
-		setLayout(new BorderLayout(10, 20));
+		setResizable(false); // 드래그 못하게
+		setLocationRelativeTo(null); // ()안이 'null'이면 창을 가운데에 배치
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // 프로세스 닫는 코드
+		setVisible(true); // 보이게
+		setLayout(new BorderLayout(10, 20)); //
 	
 		title.setBounds(585, 20, 1280, 360);
 		title.setFont(f1);
