@@ -1,7 +1,7 @@
 package piecesPackage;
 
-import chessDemo.ChessPanel;
-import chessDemo.Coordinate;
+import managePackage.ChessPanel;
+import managePackage.Coordinate;
 
 public interface CheckPath {
     boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC);

@@ -1,8 +1,8 @@
 package piecesPackage;
 
-import chessDemo.ChessPanel;
+import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
-import chessDemo.Coordinate;
+import managePackage.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -35,9 +35,8 @@ public class Queen extends Piece {
 						}
 					}
 				}
-			} catch (ArrayIndexOutOfBoundsException a) {
-			}
-			;
+			} catch (ArrayIndexOutOfBoundsException a) {}
+
 		}
 		for (int i = -1; i < 2; i += 2) {
 			try {
@@ -55,7 +54,7 @@ public class Queen extends Piece {
 				}
 			} catch (ArrayIndexOutOfBoundsException a) {
 			}
-			;
+
 		}
 		for (int i = -1; i < 2; i += 2) {
 			try {

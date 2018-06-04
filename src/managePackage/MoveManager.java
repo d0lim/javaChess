@@ -1,4 +1,4 @@
-package chessDemo;
+package managePackage;
 
 import java.awt.Color;
 

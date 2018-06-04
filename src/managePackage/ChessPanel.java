@@ -1,4 +1,4 @@
-package chessDemo;
+package managePackage;
 
 import kr.ac.cau.mecs.lenerd.chess.ImagePanel;
 import piecesPackage.Piece;

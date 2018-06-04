@@ -1,4 +1,4 @@
-package chessDemo;
+package managePackage;
 
 public class Coordinate {
     public Coordinate(int x, int y) {

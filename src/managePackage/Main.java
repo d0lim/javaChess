@@ -1,6 +1,4 @@
-package chessDemo;
-
-import chessDemo.Chess_1;
+package managePackage;
 
 public class Main {
 	

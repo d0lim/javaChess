@@ -1,8 +1,8 @@
 package piecesPackage;
 
-import chessDemo.Checkmate;
-import chessDemo.ChessPanel;
-import chessDemo.Coordinate;
+import managePackage.Checkmate;
+import managePackage.ChessPanel;
+import managePackage.Coordinate;
 
 import java.awt.image.BufferedImage;
 

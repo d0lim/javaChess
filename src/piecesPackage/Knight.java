@@ -1,8 +1,8 @@
 package piecesPackage;
 
-import chessDemo.ChessPanel;
+import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
-import chessDemo.Coordinate;
+import managePackage.Coordinate;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;

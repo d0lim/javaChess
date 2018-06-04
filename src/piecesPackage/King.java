@@ -1,9 +1,9 @@
 package piecesPackage;
 
-import chessDemo.ChessPanel;
+import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
-import chessDemo.Coordinate;
-import chessDemo.TurnManager;
+import managePackage.Coordinate;
+import managePackage.TurnManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,14 +1,8 @@
-package chessDemo;
+package managePackage;
 
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-import static com.sun.java.accessibility.util.AWTEventMonitor.removeMouseListener;
-
-
 
 
 public class BoardMouseController implements MouseListener{

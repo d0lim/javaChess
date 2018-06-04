@@ -1,4 +1,4 @@
-package chessDemo;
+package managePackage;
 
 public class CheckCheck {
     private static CheckCheck instance = new CheckCheck();

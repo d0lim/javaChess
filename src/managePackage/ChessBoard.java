@@ -1,8 +1,6 @@
-package chessDemo;
+package managePackage;
 
-import chessDemo.ChessPanel;
-
-    import java.awt.*;
+import java.awt.*;
 
 public class ChessBoard {
 
