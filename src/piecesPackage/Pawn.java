@@ -1,7 +1,7 @@
 package piecesPackage;
 
 import chessDemo.ChessPanel;
-import chessDemo.ChessPieceSprite;
+import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
 import chessDemo.Coordinate;
 
 import java.awt.Color;
@@ -26,62 +26,67 @@ public class Pawn extends Piece {
             
 	}
 	@Override
-	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
-	{
+	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {
+
 		if (this.team == 0) {
 
-
-            if (boardPiece[c.x-1][c.y].image == null) {
-                boardPiece[c.x-1][c.y].setBackground(new Color(145, 255, 228));
-                if(c.x == 6 && boardPiece[c.x-2][c.y].image == null)
-                    boardPiece[c.x-2][c.y].setBackground(new Color(145, 255, 228));
-            }
-
-
+			if (boardPiece[c.x - 1][c.y].image == null
+					&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + -1][c.y]) == false) {
+				boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
+				if (c.x == 6 && boardPiece[c.x - 2][c.y].image == null)
+					boardPiece[c.x - 2][c.y].setBackground(new Color(145, 255, 228));
+			}
 
 			try {
-				if (boardPiece[c.x-1][c.y+1].image != null && boardPiece[c.x-1][c.y+1].piece.team % 2 == 1)
-					boardPiece[c.x-1][c.y+1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {}
+				if (boardPiece[c.x - 1][c.y + 1].image != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1
+						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]) == false)
+					boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
 			try {
-				if (boardPiece[c.x-1][c.y-1].image != null && boardPiece[c.x-1][c.y-1].piece.team % 2 == 1)
-					boardPiece[c.x-1][c.y-1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {}
+				if (boardPiece[c.x - 1][c.y - 1].image != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1
+						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]) == false)
+					boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
 
-			
 			if (c.y == 1) {
 				// case of promotion
 			}
 			if (c.y == 3) {
 				// case of en passant
 			}
-		}
-		else if(this.team == 1)
-		{
+		} else if (this.team == 1) {
 
-            if (boardPiece[c.x+1][c.y].image == null) {
-                boardPiece[c.x+1][c.y].setBackground(new Color(145, 255, 228));
-                if(c.x == 1 && boardPiece[c.x+2][c.y].image == null)
-                    boardPiece[c.x+2][c.y].setBackground(new Color(145, 255, 228));
-            }
+			if (boardPiece[c.x + 1][c.y].image == null
+					&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]) == false) {
+				boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
+				if (c.x == 1 && boardPiece[c.x + 2][c.y].image == null)
+					boardPiece[c.x + 2][c.y].setBackground(new Color(145, 255, 228));
+			}
 
 			try {
-				if (boardPiece[c.x+1][c.y+1].image != null && boardPiece[c.x+1][c.y+1].piece.team % 2 == 0)
-					boardPiece[c.x+1][c.y+1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {}
+				if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 0
+						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]) == false)
+					boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
 			try {
-				if (boardPiece[c.x+1][c.y-1].image != null && boardPiece[c.x+1][c.y-1].piece.team % 2 == 0)
-					boardPiece[c.x+1][c.y-1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {}
-			if(c.x == 6) { 
+				if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0
+						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]) == false)
+					boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
+			if (c.x == 6) {
 				// case of promotion
 			}
-			if(c.x == 4) {  
+			if (c.x == 4) {
 				// case of en passant
 			}
 		}
 
-		else {}  // case of 2vs2
+		else {
+		} // case of 2vs2
 
 	}
 

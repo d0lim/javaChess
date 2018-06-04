@@ -1,5 +1,6 @@
 package chessDemo;
 
+import kr.ac.cau.mecs.lenerd.chess.ImagePanel;
 import piecesPackage.Piece;
 
 import java.awt.image.BufferedImage;

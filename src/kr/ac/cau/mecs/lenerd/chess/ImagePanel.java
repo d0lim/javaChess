@@ -1,4 +1,4 @@
-package chessDemo;
+package kr.ac.cau.mecs.lenerd.chess;
 
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,7 +1,7 @@
 package piecesPackage;
 
 import chessDemo.ChessPanel;
-import chessDemo.ChessPieceSprite;
+import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
 import chessDemo.Coordinate;
 
 import java.awt.Color;
@@ -22,37 +22,41 @@ public class Bishop extends Piece {
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
 	{
-		for(int i = -1 ; i < 2 ; i += 2)
-		{
+		for (int i = -1; i < 2; i += 2) {
 			try {
-				for(int j=1;;j++)
-				{
-					if(boardPiece[c.x+(i)*j][c.y+(i)*j].image == null)
-						boardPiece[c.x+(i)*j][c.y+(i)*j].setBackground(new Color(145, 255, 228));
-					else
-					{
-						if(boardPiece[c.x+(i)*j][c.y+(i)*j].piece.team%2 != this.team%2)
-							boardPiece[c.x+(i)*j][c.y+(i)*j].setBackground(new Color(255, 97, 160));
-						break;
+				for (int j = 1;; j++) {
+					if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y],
+							boardPiece[c.x + (i) * j][c.y + (i) * j]) == false) {
+						if (boardPiece[c.x + (i) * j][c.y + (i) * j].image == null)
+							boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(145, 255, 228));
+						else {
+							if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece.team % 2 != this.team % 2)
+								boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(255, 97, 160));
+							break;
+						}
 					}
 				}
-			} catch (ArrayIndexOutOfBoundsException a) {};
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
+			;
 		}
-		for(int i=-1 ; i<2 ; i+=2)
-		{
+		for (int i = -1; i < 2; i += 2) {
 			try {
-				for(int j=1;;j++)
-				{
-					if(boardPiece[c.x+(i)*j][c.y-(i)*j].image == null)
-						boardPiece[c.x+(i)*j][c.y-(i)*j].setBackground(new Color(145, 255, 228));
-					else
-					{
-						if(boardPiece[c.x+(i)*j][c.y-(i)*j].piece.team%2 != this.team%2)
-							boardPiece[c.x+(i)*j][c.y-(i)*j].setBackground(new Color(255, 97, 160));
-						break;
+				for (int j = 1;; j++) {
+					if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y],
+							boardPiece[c.x + (i) * j][c.y - (i) * j]) == false) {
+						if (boardPiece[c.x + (i) * j][c.y - (i) * j].image == null)
+							boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(145, 255, 228));
+						else {
+							if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece.team % 2 != this.team % 2)
+								boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(255, 97, 160));
+							break;
+						}
 					}
 				}
-			} catch (ArrayIndexOutOfBoundsException a) {};
+			} catch (ArrayIndexOutOfBoundsException a) {
+			}
+			;
 		}
 	}
 
@@ -147,4 +151,5 @@ public class Bishop extends Piece {
 
 		return false;
 	}
+	
 }

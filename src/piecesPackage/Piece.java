@@ -1,5 +1,6 @@
 package piecesPackage;
 
+import chessDemo.Checkmate;
 import chessDemo.ChessPanel;
 import chessDemo.Coordinate;
 
@@ -10,7 +11,7 @@ public abstract class Piece implements Highlight, CheckPath {
 
 	public int team;
 	boolean alive = true;
-	
+	Checkmate checkmate = new Checkmate();
 	void haveAttacked() {
 	    alive = false;
     }
@@ -19,9 +20,5 @@ public abstract class Piece implements Highlight, CheckPath {
     public abstract BufferedImage imageSetting(int team);
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {}
+	public void movable(ChessPanel[][] boardPiece, Coordinate c) {}
 }
-        
-     
-
-    
-

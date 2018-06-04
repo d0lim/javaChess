@@ -1,7 +1,7 @@
 package piecesPackage;
 
 import chessDemo.ChessPanel;
-import chessDemo.ChessPieceSprite;
+import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
 import chessDemo.Coordinate;
 
 import java.awt.Color;
@@ -26,26 +26,37 @@ public class Knight extends Piece {
 		for (int i = -1; i < 2; i += 2) {
 			for (int j = -1; j < 2; j += 2) {
 				try {
-					if (boardPiece[c.x+i][c.y+2*j].image == null) 
-						boardPiece[c.x+i][c.y+2*j].setBackground(new Color(145, 255, 228));
-					else {
-						if (boardPiece[c.x+i][c.y+2*j].piece != null
-								&& boardPiece[c.x+i][c.y+2*j].piece.team%2 != this.team%2) {
-							boardPiece[c.x+i][c.y+2*j].setBackground(new Color(255, 97, 160));
+					System.out.println(
+							checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]));
+					if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y],
+							boardPiece[c.x + i][c.y + 2 * j]) == false) {
+						if (boardPiece[c.x + i][c.y + 2 * j].image == null)
+							boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(145, 255, 228));
+						else {
+							if (boardPiece[c.x + i][c.y + 2 * j].piece != null
+									&& boardPiece[c.x + i][c.y + 2 * j].piece.team % 2 != this.team % 2) {
+								boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(255, 97, 160));
+							}
 						}
 					}
 				}
 				catch (ArrayIndexOutOfBoundsException a) {}
 				try {
-					if (boardPiece[c.x+2*i][c.y+j].image == null)
-						boardPiece[c.x+2*i][c.y+j].setBackground(new Color(145, 255, 228));
-					else {
-						if (boardPiece[c.x+2*i][c.y+j].piece != null
-								&& boardPiece[c.x+2*i][c.y+j].piece.team%2 != this.team%2) {
-							boardPiece[c.x+2*i][c.y+j].setBackground(new Color(255, 97, 160));
+					System.out.println(
+							checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]));
+					if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y],
+							boardPiece[c.x + 2 * i][c.y + j]) == false) {
+						if (boardPiece[c.x + 2 * i][c.y + j].image == null)
+							boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(145, 255, 228));
+						else {
+							if (boardPiece[c.x + 2 * i][c.y + j].piece != null
+									&& boardPiece[c.x + 2 * i][c.y + j].piece.team % 2 != this.team % 2) {
+								boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(255, 97, 160));
+							}
 						}
 					}
-				} catch (ArrayIndexOutOfBoundsException a) {}
+				} catch (ArrayIndexOutOfBoundsException a) {
+				}
 				// TODO Auto-generated method stub
 			}
 		}
@@ -95,4 +106,5 @@ public class Knight extends Piece {
         }
         return false;
     }
+
 }
