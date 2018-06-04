@@ -22,33 +22,34 @@ public class Pawn extends Piece {
             System.out.println("There's Error~ Fuck you~");
             return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_KING);
         }
-            
-            
 	}
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {
 
 		if (this.team == 0) {
 
-			if (boardPiece[c.x - 1][c.y].image == null
-					&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + -1][c.y]) == false) {
-				boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
-				if (c.x == 6 && boardPiece[c.x - 2][c.y].image == null)
-					boardPiece[c.x - 2][c.y].setBackground(new Color(145, 255, 228));
+			if (boardPiece[c.x - 1][c.y].image == null) {
+			    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
+                    boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
+                }
 			}
+            if (c.x == 6 && (boardPiece[c.x - 2][c.y].image == null && boardPiece[c.x - 1][c.y].image == null)) {
+                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
+                    boardPiece[c.x - 2][c.y].setBackground(new Color(145, 255, 228));
+            }
 
 			try {
-				if (boardPiece[c.x - 1][c.y + 1].image != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1
-						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]) == false)
-					boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {
-			}
+				if (boardPiece[c.x - 1][c.y + 1].image != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1) {
+				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
+                        boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
+                }
+			} catch (ArrayIndexOutOfBoundsException ignored) {}
 			try {
-				if (boardPiece[c.x - 1][c.y - 1].image != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1
-						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]) == false)
-					boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {
-			}
+				if (boardPiece[c.x - 1][c.y - 1].image != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1) {
+				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+                        boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
+                }
+			} catch (ArrayIndexOutOfBoundsException ignored) {}
 
 			if (c.y == 1) {
 				// case of promotion
@@ -57,26 +58,30 @@ public class Pawn extends Piece {
 				// case of en passant
 			}
 		} else if (this.team == 1) {
+            if (boardPiece[c.x + 1][c.y].image == null) {
+                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {
+                    boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
+                }
+            }
+            if (c.x == 1 && (boardPiece[c.x + 2][c.y].image == null && boardPiece[c.x + 1][c.y].image == null)) {
+                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2][c.y]))
+                    boardPiece[c.x + 2][c.y].setBackground(new Color(145, 255, 228));
+            }
 
-			if (boardPiece[c.x + 1][c.y].image == null
-					&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]) == false) {
-				boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
-				if (c.x == 1 && boardPiece[c.x + 2][c.y].image == null)
-					boardPiece[c.x + 2][c.y].setBackground(new Color(145, 255, 228));
-			}
+            try {
+                if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 1) {
+                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
+                        boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
+                }
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
+            try {
+                if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 1) {
+                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+                        boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
+                }
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
 
-			try {
-				if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 0
-						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]) == false)
-					boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {
-			}
-			try {
-				if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0
-						&& checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]) == false)
-					boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
-			} catch (ArrayIndexOutOfBoundsException a) {
-			}
+
 			if (c.x == 6) {
 				// case of promotion
 			}

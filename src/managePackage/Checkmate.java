@@ -24,12 +24,20 @@ public class Checkmate {
 	}
 	public void invisibleMove(ChessPanel start, ChessPanel dest)
 	{
+		if(start.isKing[TurnManager.turn]) {
+			start.notKing();
+			dest.setIsKing(TurnManager.turn);
+		}
 		temp = dest.piece;
 		dest.piece = start.piece;
 		start.piece = null;
 	}
 	public void moveReturn(ChessPanel start, ChessPanel dest)
 	{
+		if(dest.isKing[TurnManager.turn]) {
+			dest.notKing();
+			start.setIsKing(TurnManager.turn);
+		}
 		start.piece = dest.piece;
 		dest.piece = temp;
 	}

@@ -24,78 +24,85 @@ public class King extends Piece {
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {
 
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]) == false) {
-				if (boardPiece[c.x - 1][c.y - 1].image == null) {
+			if (boardPiece[c.x - 1][c.y - 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
 					boardPiece[c.x - 1][c.y - 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x - 1][c.y - 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x - 1][c.y - 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
 					boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
 			}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
 
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]) == false) {
-				if (boardPiece[c.x - 1][c.y].image == null) {
+			if (boardPiece[c.x - 1][c.y].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]))
 					boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x - 1][c.y].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x - 1][c.y].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]))
 					boardPiece[c.x - 1][c.y].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]) == false) {
-				if (boardPiece[c.x - 1][c.y + 1].image == null) {
+			if (boardPiece[c.x - 1][c.y + 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
 					boardPiece[c.x - 1][c.y + 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x - 1][c.y + 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x - 1][c.y + 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
 					boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y - 1]) == false) {
-				if (boardPiece[c.x][c.y - 1].image == null) {
+			if (boardPiece[c.x][c.y - 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y - 1]))
 					boardPiece[c.x][c.y - 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x][c.y - 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x][c.y - 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y - 1]))
 					boardPiece[c.x][c.y - 1].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + 1]) == false) {
-				if (boardPiece[c.x][c.y + 1].image == null) {
+			if (boardPiece[c.x][c.y + 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + 1]))
 					boardPiece[c.x][c.y + 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x][c.y + 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x][c.y + 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + 1]))
 					boardPiece[c.x][c.y + 1].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]) == false) {
-				if (boardPiece[c.x + 1][c.y - 1].image == null) {
+			if (boardPiece[c.x + 1][c.y - 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]))
 					boardPiece[c.x + 1][c.y - 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x + 1][c.y - 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x + 1][c.y - 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]))
 					boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]) == false) {
-				if (boardPiece[c.x + 1][c.y].image == null) {
+			if (boardPiece[c.x + 1][c.y].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]))
 					boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x + 1][c.y].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x + 1][c.y].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]))
 					boardPiece[c.x + 1][c.y].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 		try {
-			if (checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]) == false) {
-				if (boardPiece[c.x + 1][c.y + 1].image == null) {
+			if (boardPiece[c.x + 1][c.y + 1].image == null) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
 					boardPiece[c.x + 1][c.y + 1].setBackground(new Color(145, 255, 228));
-				} else if (boardPiece[c.x + 1][c.y + 1].piece.team != TurnManager.turn)
+			} else if (boardPiece[c.x + 1][c.y + 1].piece.team != TurnManager.turn) {
+				if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
 					boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
 			}
-		} catch (ArrayIndexOutOfBoundsException ignore) {
-		}
+		} catch (ArrayIndexOutOfBoundsException ignore) {}
+
 
 	}
 

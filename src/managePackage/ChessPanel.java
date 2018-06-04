@@ -10,7 +10,6 @@ public class ChessPanel extends ImagePanel {
 	public Coordinate c = new Coordinate();
 	public BufferedImage image;
 	public boolean[] isKing = {false, false, false, false};
-	public boolean[] movable = {false, false, false, false};
 	
 	public void setPiece(Piece piece, int team)
 	{
@@ -53,16 +52,6 @@ public class ChessPanel extends ImagePanel {
 	public void notKing() {
 		for(int i = 0; i < 4; i++) {
 			isKing[i] = false;
-		}
-	}
-
-	public void setMovable(int team) {
-		movable[team] = true;
-	}
-
-	public void resetMovable() {
-		for(int i = 0; i < 4; i++) {
-			movable[i] = false;
 		}
 	}
 

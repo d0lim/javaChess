@@ -4,8 +4,7 @@ import java.awt.*;
 
 public class ChessBoard {
 
-    public static Color pc;
-    public static Color qc;
+
     private int i, j;
     ChessPanel boardPanel = new ChessPanel();
     ChessPanel[][] boardPiece = new ChessPanel[8][8];
