@@ -26,13 +26,13 @@ public class CheckCheck {
                             selfRisk = 1;
                         }
                         else
-                            selfRisk = 0;
+                            return 0;
                     }
                     else {
                         /*String name = boardPiece[i][j].piece.getClass().getName();
                         System.out.println(name + " do not make Check!");*/
-                    	continue;
-                        
+                    	selfRisk = 1;
+
                     }
 
                 }

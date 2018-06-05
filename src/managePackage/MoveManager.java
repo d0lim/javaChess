@@ -53,9 +53,12 @@ public class MoveManager {
 		else if(sequence == 2) {
             turn = TurnManager.turn;
             if(boardPiece[selectedCoordinate.x][selectedCoordinate.y].isKing[turn]) {
+            	System.out.println("Moving King");
                 boardPiece[selectedCoordinate.x][selectedCoordinate.y].notKing();
                 boardPiece[destinationC.x][destinationC.y].setIsKing(turn);
             }
+            else
+				boardPiece[destinationC.x][destinationC.y].notKing();
 
             removePMC();
             Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();

@@ -69,13 +69,13 @@ public class Pawn extends Piece {
             }
 
             try {
-                if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 1) {
+                if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 0) {
                     if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
                         boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}
             try {
-                if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 1) {
+                if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0) {
                     if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
                         boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
@@ -103,12 +103,12 @@ public class Pawn extends Piece {
 		            continue;
 		        try {
                     if(boardPiece[panelC.x-1][panelC.y-1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 0");
+                        System.out.println("Pawn Made Check team 0 [" + panelC.x + "][" + panelC.y + "]");
                         return true;
                     }
 
                     else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 0");
+                        System.out.println("Pawn Made Check team 0 [" + panelC.x + "][" + panelC.y + "]");
                         return true;
                     }
 
@@ -124,13 +124,13 @@ public class Pawn extends Piece {
                 if(i == 1)
                     continue;
                 try {
-                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 1");
+                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 1 [" + panelC.x + "][" + panelC.y + "]");
                         return true;
                     }
 
-                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 1");
+                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i]) {
+                        System.out.println("Pawn Made Check team 1 [" + panelC.x + "][" + panelC.y + "]");
                         return true;
                     }
 

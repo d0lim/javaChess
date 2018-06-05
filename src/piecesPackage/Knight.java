@@ -22,7 +22,6 @@ public class Knight extends Piece {
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
 	{
-
 		for (int i = -1; i < 2; i += 2) {
 			for (int j = -1; j < 2; j += 2) {
 				try {
@@ -94,7 +93,7 @@ public class Knight extends Piece {
                         return true;
 
                 } catch (ArrayIndexOutOfBoundsException ignored) {}
-                // TODO Auto-generated method stub
+
             }
         }
         return false;

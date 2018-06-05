@@ -21,7 +21,7 @@ public class ChessPanel extends ImagePanel {
 	}
 	public void resetPiece()
 	{
-		image = null;
+		this.image = null;
 		setImage(null);
 		this.piece = null;
 	}
