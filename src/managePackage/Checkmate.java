@@ -10,6 +10,7 @@ public class Checkmate {
 	
 	public boolean selfrisk(ChessPanel[][] boardPiece, ChessPanel start,ChessPanel dest)
 	{
+        System.out.println("Before invisible Move " + start.piece +", "+ dest.piece +" Dest: "+dest.c.x+","+dest.c.y);
 		invisibleMove(start, dest);
 		System.out.println(start.piece +", "+ dest.piece +" Dest: "+dest.c.x+","+dest.c.y);
 		if(checkInstance.checkCheck(boardPiece) == 1)

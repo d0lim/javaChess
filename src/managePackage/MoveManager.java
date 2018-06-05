@@ -40,9 +40,8 @@ public class MoveManager {
 				}
 			}
 
-
-
 			boardPiece[selectedCoordinate.x][selectedCoordinate.y].piece.highlight(boardPiece, selectedCoordinate);
+
             System.out.print("\nThe Highlighting has completed..!\n");
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
