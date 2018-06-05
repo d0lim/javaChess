@@ -2,7 +2,7 @@ package managePackage;
 
 import piecesPackage.Piece;
 
-public class Checkmate {
+public class SelfRiskCheck {
 	
 	Piece temp = null;
 	CheckCheck checkInstance = CheckCheck.getInstance();

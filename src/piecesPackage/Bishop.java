@@ -9,8 +9,12 @@ import java.awt.image.BufferedImage;
 
 public class Bishop extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
-	
-	public BufferedImage imageSetting(int team)
+
+    public Bishop(int x, int y) {
+        super(x, y);
+    }
+
+    public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -26,12 +30,12 @@ public class Bishop extends Piece {
             try {
                 for (int j = 1;; j++) {
                     if (boardPiece[c.x + (i) * j][c.y + (i) * j].image == null) {
-                        if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
+                        if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
                             boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(145, 255, 228));
                     }
                     else {
                         if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece.team % 2 != this.team % 2) {
-                            if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
+                            if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
                                 boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(255, 97, 160));
                         }
                         break;
@@ -43,12 +47,12 @@ public class Bishop extends Piece {
             try {
                 for (int j = 1;; j++) {
                     if (boardPiece[c.x + (i) * j][c.y - (i) * j].image == null) {
-                        if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
+                        if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
                             boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(145, 255, 228));
                     }
                     else {
                         if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece.team % 2 != this.team % 2) {
-                            if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
+                            if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
                                 boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(255, 97, 160));
                         }
                         break;

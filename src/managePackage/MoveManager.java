@@ -52,13 +52,10 @@ public class MoveManager {
 		}
 		else if(sequence == 2) {
             turn = TurnManager.turn;
-            if(boardPiece[selectedCoordinate.x][selectedCoordinate.y].isKing[turn]) {
-            	System.out.println("Moving King");
-                boardPiece[selectedCoordinate.x][selectedCoordinate.y].notKing();
-                boardPiece[destinationC.x][destinationC.y].setIsKing(turn);
+            if(selectedCoordinate.equals(GameManager.kingC[turn])) {
+                System.out.println("Moving King");
+                GameManager.kingC[turn] = destinationC;
             }
-            else
-				boardPiece[destinationC.x][destinationC.y].notKing();
 
             removePMC();
             Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();
@@ -83,13 +80,12 @@ public class MoveManager {
 		}
 		else if(sequence == 3) {
 			turn = TurnManager.turn;
-			if(boardPiece[selectedCoordinate.x][selectedCoordinate.y].isKing[turn]) {
+
+			if(selectedCoordinate.equals(GameManager.kingC[turn])) {
 				System.out.println("Moving King");
-				boardPiece[selectedCoordinate.x][selectedCoordinate.y].notKing();
-				boardPiece[destinationC.x][destinationC.y].setIsKing(turn);
+				GameManager.kingC[turn] = destinationC;
 			}
-			else
-				boardPiece[destinationC.x][destinationC.y].notKing();
+
 
 			removePMC();
 			Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();

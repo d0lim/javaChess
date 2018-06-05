@@ -10,8 +10,12 @@ import java.awt.image.BufferedImage;
 public class Pawn extends Piece {
 
     ChessPieceSprite instance = ChessPieceSprite.getInstace();
-	
-	public BufferedImage imageSetting(int team)
+
+    public Pawn(int x, int y) {
+        super(x, y);
+    }
+
+    public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -29,24 +33,24 @@ public class Pawn extends Piece {
 		if (this.team == 0) {
 
 			if (boardPiece[c.x - 1][c.y].image == null) {
-			    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
+			    if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
                     boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
                 }
 			}
             if (c.x == 6 && (boardPiece[c.x - 2][c.y].image == null && boardPiece[c.x - 1][c.y].image == null)) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
+                if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
                     boardPiece[c.x - 2][c.y].setBackground(new Color(145, 255, 228));
             }
 
 			try {
 				if (boardPiece[c.x - 1][c.y + 1].image != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1) {
-				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
+				    if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
                         boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
                 }
 			} catch (ArrayIndexOutOfBoundsException ignored) {}
 			try {
 				if (boardPiece[c.x - 1][c.y - 1].image != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1) {
-				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+				    if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
                         boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
 			} catch (ArrayIndexOutOfBoundsException ignored) {}
@@ -59,24 +63,24 @@ public class Pawn extends Piece {
 			}
 		} else if (this.team == 1) {
             if (boardPiece[c.x + 1][c.y].image == null) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {
+                if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {
                     boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
                 }
             }
             if (c.x == 1 && (boardPiece[c.x + 2][c.y].image == null && boardPiece[c.x + 1][c.y].image == null)) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2][c.y]))
+                if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2][c.y]))
                     boardPiece[c.x + 2][c.y].setBackground(new Color(145, 255, 228));
             }
 
             try {
                 if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 0) {
-                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
+                    if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
                         boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}
             try {
                 if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0) {
-                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+                    if(!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
                         boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}

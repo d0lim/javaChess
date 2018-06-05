@@ -1,18 +1,27 @@
 package piecesPackage;
 
-import managePackage.Checkmate;
+import managePackage.SelfRiskCheck;
 import managePackage.ChessPanel;
 import managePackage.Coordinate;
 
 import java.awt.image.BufferedImage;
 
 public abstract class Piece implements Highlight, CheckPath {
+	public Piece(int x, int y) {
+	   this.x = x;
+	   this.y = y;
+    }
 	//constructor!!!!
-
+	public int x;
+	public int y;
 	public int team;
 	boolean alive = true;
-	Checkmate checkmate = new Checkmate();
-	void haveAttacked() {
+	SelfRiskCheck selfRiskCheck = new SelfRiskCheck();
+
+    protected Piece() {
+    }
+
+    void haveAttacked() {
 	    alive = false;
     }
 	

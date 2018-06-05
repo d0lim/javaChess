@@ -9,8 +9,12 @@ import java.awt.image.BufferedImage;
 
 public class Knight extends Piece {
 	ChessPieceSprite instance = ChessPieceSprite.getInstace();
-	
-	public BufferedImage imageSetting(int team)
+
+    public Knight(int x, int y) {
+        super(x, y);
+    }
+
+    public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
@@ -26,24 +30,24 @@ public class Knight extends Piece {
 			for (int j = -1; j < 2; j += 2) {
 				try {
                     if (boardPiece[c.x + i][c.y + 2 * j].image == null) {
-                        if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
+                        if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
                             boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(145, 255, 228));
                     }
                     else {
                         if (boardPiece[c.x + i][c.y + 2 * j].piece != null && boardPiece[c.x + i][c.y + 2 * j].piece.team % 2 != this.team % 2) {
-                            if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
+                            if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
                                 boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(255, 97, 160));
                         }
                     }
 				} catch (ArrayIndexOutOfBoundsException ignored) {}
                 try {
                     if (boardPiece[c.x + 2 * i][c.y + j].image == null) {
-                        if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
+                        if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
                             boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(145, 255, 228));
                     }
                     else {
                         if (boardPiece[c.x + 2 * i][c.y + j].piece != null && boardPiece[c.x + 2 * i][c.y + j].piece.team % 2 != this.team % 2) {
-                            if (!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
+                            if (!selfRiskCheck.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
                                 boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(255, 97, 160));
                         }
                     }
