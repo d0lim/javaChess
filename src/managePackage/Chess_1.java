@@ -16,20 +16,20 @@ import javax.swing.JPanel;
 public class Chess_1 extends JFrame {
 	
 	private JPanel main = new JPanel();
-	private JPanel oneGame = new JPanel();
+	private JPanel game1v1Panel = new JPanel();
 	private JLabel title = new JLabel("CHESS");
 	private JButton btnOne = new JButton("1vs1");
 	private JButton btnTwo = new JButton("2vs2");
 	private JButton btnExit = new JButton("EXIT");
 	private Color b1 = new Color(76, 120, 200);
-	private Font f1 = new Font("D2Coding", Font.PLAIN, 30);
+
 	ChessBoard oneBoard = new ChessBoard();
 	GameManager gm = new GameManager();
 	
 	public Chess_1() {
 
 		main.setOpaque(true);
-		oneGame.setOpaque(true);
+		game1v1Panel.setOpaque(true);
 
 
 		setTitle("CHESS");
@@ -41,12 +41,12 @@ public class Chess_1 extends JFrame {
 		setLayout(new BorderLayout(10, 20));
 	
 		title.setBounds(585, 20, 1280, 360);
-		title.setFont(f1);
+
 		
 		btnOne.setBounds(450, 280, 380, 80);
 		btnOne.setBackground(b1);
 		btnOne.setForeground(Color.white);
-		btnOne.setFont(f1);
+
 		btnOne.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -62,14 +62,16 @@ public class Chess_1 extends JFrame {
 			public void mousePressed(MouseEvent e)
 			{
 				main.setVisible(false);
-				oneGame.setLayout(new BorderLayout());
-				oneGame.add(oneBoard.makeBoard(), BorderLayout.CENTER);
-				add(oneGame);
+				game1v1Panel = oneBoard.makeGamePanel();
+
+				add(game1v1Panel);
+
 				gm.setPosition(oneBoard.boardPiece);
+
 				MoveManager instance = MoveManager.getInstance();
 				instance.setBoard(oneBoard.boardPiece);
 				gm.initListener(oneBoard.boardPiece);
-				oneGame.setVisible(true);
+				game1v1Panel.setVisible(true);
 
 				
 			}
@@ -78,7 +80,7 @@ public class Chess_1 extends JFrame {
 		btnTwo.setBounds(450, 380, 380, 80);
 		btnTwo.setBackground(b1);
 		btnTwo.setForeground(Color.white);
-		btnTwo.setFont(f1);
+
 		btnTwo.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -100,7 +102,7 @@ public class Chess_1 extends JFrame {
 		btnExit.setBounds(450, 480, 380, 80);
 		btnExit.setBackground(b1);
 		btnExit.setForeground(Color.white);
-		btnExit.setFont(f1);
+
 		btnExit.addMouseListener(new MouseAdapter()
 		{
 			@Override

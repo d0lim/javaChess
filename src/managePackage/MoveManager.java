@@ -23,6 +23,7 @@ public class MoveManager {
 		this.boardPiece = boardPiece;
 	}
 
+
 	public void setPiece(Coordinate selectedCoordinate) {
 		this.selectedCoordinate = selectedCoordinate;
 	}
@@ -81,6 +82,39 @@ public class MoveManager {
 			System.out.println("reInsert Listener Completed");
 		}
 		else if(sequence == 3) {
+			turn = TurnManager.turn;
+			if(boardPiece[selectedCoordinate.x][selectedCoordinate.y].isKing[turn]) {
+				System.out.println("Moving King");
+				boardPiece[selectedCoordinate.x][selectedCoordinate.y].notKing();
+				boardPiece[destinationC.x][destinationC.y].setIsKing(turn);
+			}
+			else
+				boardPiece[destinationC.x][destinationC.y].notKing();
+
+			removePMC();
+			Piece bPiece = boardPiece[selectedCoordinate.x][selectedCoordinate.y].getPiece();
+			Piece dPiece = boardPiece[destinationC.x][destinationC.y].getPiece();
+			System.out.println("Moving Piece is " + bPiece.getClass().getName() + " and its team is " + bPiece.team);
+			boardPiece[selectedCoordinate.x][selectedCoordinate.y].resetPiece();
+			boardPiece[destinationC.x][destinationC.y].resetPiece();
+			boardPiece[destinationC.x][destinationC.y].setPiece(bPiece, bPiece.team);
+			moveDead(dPiece);
+
+			boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(false);
+			boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(true);
+			boardPiece[destinationC.x][destinationC.y].setVisible(false);
+			boardPiece[destinationC.x][destinationC.y].setVisible(true);
+
+			System.out.println("Check judgement started");
+			checkInstance.checkCheck(boardPiece);
+
+			turnChecker.nextTurn();
+			turnChecker.turnCheck();
+			reInsertBMC();
+
+			System.out.println("reInsert Listener Completed");
+		}
+		else if(sequence == 4) {
             removePMC();
             reInsertBMC();
             System.out.println("Wrong Destination Clicked so reInserted BListener..");
@@ -107,4 +141,38 @@ public class MoveManager {
             }
         }
     }
+    void moveDead(Piece dPiece) {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Move Dead Loaded");
+		System.out.println("");
+		System.out.println("");
+
+		if(TurnManager.turn == 0) {
+			label :
+			for(int i = 0; i < 2; i++) {
+				for(int j = 0; j < 8; j++) {
+					if(ChessBoard.deathPieceLeft[j][i].piece == null) {
+						ChessBoard.deathPieceLeft[j][i].setPiece(dPiece, 1);
+						ChessBoard.deathPieceLeft[j][i].setVisible(false);
+						ChessBoard.deathPieceLeft[j][i].setVisible(true);
+						break label;
+					}
+				}
+			}
+		}
+		else if(TurnManager.turn == 1) {
+			label :
+			for(int i = 0; i < 2; i++) {
+				for(int j = 0; j < 8; j++) {
+					if(ChessBoard.deathPieceRight[j][i].piece == null) {
+						ChessBoard.deathPieceRight[j][i].setPiece(dPiece, 0);
+						ChessBoard.deathPieceRight[j][i].setVisible(false);
+						ChessBoard.deathPieceRight[j][i].setVisible(true);
+						break label;
+					}
+				}
+			}
+		}
+	}
 }

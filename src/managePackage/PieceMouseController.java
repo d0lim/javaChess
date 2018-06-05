@@ -18,15 +18,21 @@ public class PieceMouseController implements MouseListener {
 
         MoveManager instance = MoveManager.getInstance();
         ChessPanel destination = (ChessPanel)e.getSource();
-        if(destination.getBackground().equals(moveH) || destination.getBackground().equals(attackH)) {
-            System.out.println("Destination Clicked");
+        if(destination.getBackground().equals(moveH)) {
+            System.out.println("Move Destination Clicked");
             Coordinate c = destination.getIndex();
             System.out.println("x is : " + c.x + ", y is " + c.y);
             instance.move(2, c);
         }
+        else if(destination.getBackground().equals(attackH)) {
+            System.out.println("Attacking!");
+            Coordinate c = destination.getIndex();
+            System.out.println("x is : " + c.x + ", y is " + c.y);
+            instance.move(3, c);
+        }
         else {
-            System.out.println("Unfortunately, that was not a Destination!!");
-            instance.move(3, null);
+
+            instance.move(4, null);
         }
         
     }
