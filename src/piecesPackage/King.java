@@ -107,8 +107,61 @@ public class King extends Piece {
 	}
 
 	@Override
-	public boolean checkPath(ChessPanel[][] boardPiece, Coordinate attackCoordinate) {
+	public boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC) {
 
+		if(this.team == 0) {
+			for(int i = 0; i < 4; i++) {
+				if(i == 0)
+					continue;
+				try {
+					if (boardPiece[panelC.x - 1][panelC.y - 1].isKing[i]) {
+						return true;
+					}
+				} catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x - 1][panelC.y].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x - 1][panelC.y + 1].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x][panelC.y - 1].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x][panelC.y + 1].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x + 1][panelC.y - 1].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x + 1][panelC.y].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+
+                try {
+                    if (boardPiece[panelC.x + 1][panelC.y + 1].isKing[i]) {
+                        return true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+			}
+		}
 		return false;
 	}
 	
