@@ -24,7 +24,6 @@ public class ChessPieceSprite {
 	 * This represents possible chess pieces.
 	 * 
 	 * @author LeNerd
-	 *
 	 */
 	public enum ChessPieceSpriteType {
 		BLACK_KING(5, 0), BLACK_QUEEN(4, 0), BLACK_LOOK(3, 0), BLACK_KNIGHT(1, 0), BLACK_BISHOP(2, 0), BLACK_PAWN(0, 0),
@@ -44,9 +43,9 @@ public class ChessPieceSprite {
 		}
 
 		public String getKey() {
-			return x + "," + y;
-		}
+		return x + "," + y;
 	}
+}
 
 	private static ChessPieceSprite instance = new ChessPieceSprite();
 	BufferedImage imgAtlas;
@@ -55,8 +54,8 @@ public class ChessPieceSprite {
 	private ChessPieceSprite() {
 		try {
 			imgAtlas = ImageIO.read(new File("/Users/limdongyoung/IdeaProjects/javaChess/src/sprite2.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+					} catch (IOException e) {
+			//			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

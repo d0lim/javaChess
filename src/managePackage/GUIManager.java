@@ -19,7 +19,7 @@ public class GUIManager {
         JPanel gameOver = new JPanel();
         gameOver.setLayout(null);
         gameOver.setSize(500, 300);
-        JLabel overLabel = new JLabel("Checkmate");
+        JLabel overLabel = new JLabel("SelfRiskCheck");
         gameOver.add(overLabel);
         overLabel.setBounds(50, 70, 200, 80);
         JButton homeButton = new JButton("HOME");

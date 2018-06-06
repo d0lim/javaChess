@@ -10,7 +10,11 @@ import java.awt.image.BufferedImage;
 public class Pawn extends Piece {
 
     ChessPieceSprite instance = ChessPieceSprite.getInstace();
-	
+
+    public Pawn(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
@@ -28,25 +32,25 @@ public class Pawn extends Piece {
 
 		if (this.team == 0) {
 
-			if (boardPiece[c.x - 1][c.y].image == null) {
-			    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
+			if (boardPiece[c.x - 1][c.y].piece == null) {
+			    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
                     boardPiece[c.x - 1][c.y].setBackground(new Color(145, 255, 228));
                 }
 			}
-            if (c.x == 6 && (boardPiece[c.x - 2][c.y].image == null && boardPiece[c.x - 1][c.y].image == null)) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
+            if (c.x == 6 && (boardPiece[c.x - 2][c.y].piece == null && boardPiece[c.x - 1][c.y].piece == null)) {
+                if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
                     boardPiece[c.x - 2][c.y].setBackground(new Color(145, 255, 228));
             }
 
 			try {
-				if (boardPiece[c.x - 1][c.y + 1].image != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1) {
-				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
+				if (boardPiece[c.x - 1][c.y + 1].piece != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1) {
+				    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
                         boardPiece[c.x - 1][c.y + 1].setBackground(new Color(255, 97, 160));
                 }
 			} catch (ArrayIndexOutOfBoundsException ignored) {}
 			try {
-				if (boardPiece[c.x - 1][c.y - 1].image != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1) {
-				    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+				if (boardPiece[c.x - 1][c.y - 1].piece != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1) {
+				    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
                         boardPiece[c.x - 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
 			} catch (ArrayIndexOutOfBoundsException ignored) {}
@@ -58,25 +62,25 @@ public class Pawn extends Piece {
 				// case of en passant
 			}
 		} else if (this.team == 1) {
-            if (boardPiece[c.x + 1][c.y].image == null) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {
+            if (boardPiece[c.x + 1][c.y].piece == null) {
+                if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {
                     boardPiece[c.x + 1][c.y].setBackground(new Color(145, 255, 228));
                 }
             }
             if (c.x == 1 && (boardPiece[c.x + 2][c.y].image == null && boardPiece[c.x + 1][c.y].image == null)) {
-                if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2][c.y]))
+                if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2][c.y]))
                     boardPiece[c.x + 2][c.y].setBackground(new Color(145, 255, 228));
             }
 
             try {
                 if (boardPiece[c.x + 1][c.y + 1].image != null && boardPiece[c.x + 1][c.y + 1].piece.team % 2 == 0) {
-                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
+                    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
                         boardPiece[c.x + 1][c.y + 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}
             try {
                 if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0) {
-                    if(!checkmate.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+                    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
                         boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}
@@ -94,53 +98,4 @@ public class Pawn extends Piece {
 		} // case of 2vs2
 
 	}
-
-	@Override
-	public boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC) {
-		if(this.team == 0) {
-		    for(int i = 0; i < 4; i++) {
-		        if(i == 0)
-		            continue;
-		        try {
-                    if(boardPiece[panelC.x-1][panelC.y-1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 0 [" + panelC.x + "][" + panelC.y + "]");
-                        return true;
-                    }
-
-                    else if(boardPiece[panelC.x-1][panelC.y+1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 0 [" + panelC.x + "][" + panelC.y + "]");
-                        return true;
-                    }
-
-                    else
-                        return false;
-                } catch (ArrayIndexOutOfBoundsException ignored) {}
-
-            }
-
-        }
-	    else if(this.team == 1) {
-            for(int i = 0; i < 4; i++) {
-                if(i == 1)
-                    continue;
-                try {
-                    if(boardPiece[panelC.x+1][panelC.y-1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 1 [" + panelC.x + "][" + panelC.y + "]");
-                        return true;
-                    }
-
-                    else if(boardPiece[panelC.x+1][panelC.y+1].isKing[i]) {
-                        System.out.println("Pawn Made Check team 1 [" + panelC.x + "][" + panelC.y + "]");
-                        return true;
-                    }
-
-                    else
-                        return false;
-                } catch (ArrayIndexOutOfBoundsException ignored) {}
-
-            }
-        }
-
-        return false;
-    }
 }

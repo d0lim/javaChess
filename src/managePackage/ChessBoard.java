@@ -13,7 +13,7 @@ public class ChessBoard {
     public static ChessPanel[][] deathPieceLeft;
     public static ChessPanel[][] deathPieceRight;
 
-    public JPanel makeGamePanel() {
+        public JPanel makeGamePanel() {
         JPanel boardPanel;
         JPanel[] deathPanel;
 
@@ -51,9 +51,9 @@ public class ChessBoard {
                 boardPiece[i][j].setSize(600 / 8, 600 / 8);
                 boardPiece[i][j].setOpaque(true);
                 if((j + i) % 2 == 0)
-                    boardPiece[i][j].setBackground(new Color(219, 219, 219));
+                    boardPiece[i][j].setBackground(ColorM.origin1H);
                 else
-                    boardPiece[i][j].setBackground(new Color(156, 156, 156));
+                    boardPiece[i][j].setBackground(ColorM.origin2H);
 
                 boardPanel.add(boardPiece[i][j]);
 

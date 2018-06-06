@@ -21,9 +21,4 @@ public class Wall extends Piece{
         return null;
     }
 
-
-    @Override
-    public boolean checkPath(ChessPanel[][] boardPiece, Coordinate panelC) {
-        return false;
-    }
 }
