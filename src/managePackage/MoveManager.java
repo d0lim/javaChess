@@ -78,8 +78,8 @@ public class MoveManager {
 
 				System.out.println("Check judgement started");
 
-				turnChecker.nextTurn();
-				turnChecker.turnCheck();
+				turnChecker.nextTurn1();
+
 
 				checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 				reInsertBMC();
@@ -110,8 +110,8 @@ public class MoveManager {
 
 				System.out.println("Check judgement started");
 
-				turnChecker.nextTurn();
-				turnChecker.turnCheck();
+				turnChecker.nextTurn1();
+
 				checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 
 				reInsertBMC();
@@ -162,8 +162,8 @@ public class MoveManager {
 
                 System.out.println("Check judgement started");
 
-                turnChecker.nextTurn();
-                turnChecker.turnCheck2();
+                turnChecker.nextTurn2();
+
 
                 //checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
                 reInsertBMC();
@@ -194,8 +194,8 @@ public class MoveManager {
 
                 System.out.println("Check judgement started");
 
-                turnChecker.nextTurn();
-                turnChecker.turnCheck2();
+                turnChecker.nextTurn2();
+
                 //checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 
                 reInsertBMC();
