@@ -62,6 +62,7 @@ public class Chess_1 extends JFrame {
 			}
 			public void mousePressed(MouseEvent e)
 			{
+				GameManager.gameType = 1;
 				main.setVisible(false);
 				game1v1Panel = oneBoard.makeGamePanel(1);
 
@@ -96,6 +97,7 @@ public class Chess_1 extends JFrame {
 			}
 			public void mousePressed(MouseEvent e)
 			{
+				GameManager.gameType = 2;
 				main.setVisible(false);
 				game2v2Panel = oneBoard.makeGamePanel(2);
 				

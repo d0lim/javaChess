@@ -3,6 +3,7 @@ package piecesPackage;
 import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
 import managePackage.Coordinate;
+import managePackage.GameManager;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -16,16 +17,27 @@ public class Bishop extends Piece {
     }
 	public BufferedImage imageSetting(int team)
 	{
-		BufferedImage image1 = null;
-		if(team == 0)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_BISHOP);
-		else if(team == 1)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_BISHOP);
-		else if(team == 2)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_BISHOP);
-		else if(team == 3)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_BISHOP);
-		return image1;
+        BufferedImage image1 = null;
+	    if(GameManager.gameType == 1) {
+	        if(team == 0)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_BISHOP);
+	        else if(team == 1)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_BISHOP);
+
+        }
+	    else if(GameManager.gameType == 2) {
+
+            if (team == 0)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_BISHOP);
+            else if (team == 1)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_BISHOP);
+            else if (team == 2)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_BISHOP);
+            else if (team == 3)
+                image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_BISHOP);
+
+        }
+        return image1;
 	}
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c)
@@ -38,7 +50,8 @@ public class Bishop extends Piece {
                             boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(145, 255, 228));
                     }
                     else {
-                        if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece.team % 2 != this.team % 2) {
+                        if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece.team % 2 != this.team % 2
+                                 && boardPiece[c.x + i * j][c.y + i * j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
                                 boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(255, 97, 160));
                         }
@@ -55,7 +68,8 @@ public class Bishop extends Piece {
                             boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(145, 255, 228));
                     }
                     else {
-                        if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece.team % 2 != this.team % 2) {
+                        if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece.team % 2 != this.team % 2
+                                 && boardPiece[c.x + i * j][c.y - i * j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
                                 boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(255, 97, 160));
                         }

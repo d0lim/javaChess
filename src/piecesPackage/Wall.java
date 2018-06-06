@@ -7,13 +7,9 @@ import java.awt.image.BufferedImage;
 
 public class Wall extends Piece{
 
-    private static Wall wallInstance = new Wall();
-
-    private Wall() {
-        System.out.println("You have loaded wall Instance!");
-    }
-    public static Wall getInstance() {
-        return wallInstance;
+    public Wall(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
     @Override

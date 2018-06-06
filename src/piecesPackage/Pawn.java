@@ -3,6 +3,7 @@ package piecesPackage;
 import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
 import managePackage.Coordinate;
+import managePackage.GameManager;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -18,16 +19,26 @@ public class Pawn extends Piece {
 	public BufferedImage imageSetting(int team)
 	{
 		BufferedImage image1 = null;
-		if(team == 0)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
-		else if(team == 1)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
-		else if(team == 2)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_PAWN);
-		else if(team == 3)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_PAWN);
-		
-        return image1;
+		if(GameManager.gameType == 1) {
+			if(team == 0)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
+			else if(team == 1)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
+
+		}
+		else if(GameManager.gameType == 2) {
+
+			if (team == 0)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
+			else if (team == 1)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_PAWN);
+			else if (team == 2)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
+			else if (team == 3)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_PAWN);
+
+		}
+		return image1;
 	}
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {

@@ -1,10 +1,7 @@
 package piecesPackage;
 
-import managePackage.ChessPanel;
+import managePackage.*;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
-import managePackage.ColorM;
-import managePackage.Coordinate;
-import managePackage.TurnManager;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,14 +15,25 @@ public class King extends Piece {
 
 	public BufferedImage imageSetting(int team) {
 		BufferedImage image1 = null;
-		if (team == 0)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_KING);
-		else if (team == 1)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_KING);
-		else if(team == 2)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_KING);
-		else if(team == 3)
-			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_KING);
+		if(GameManager.gameType == 1) {
+			if(team == 0)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_KING);
+			else if(team == 1)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_KING);
+
+		}
+		else if(GameManager.gameType == 2) {
+
+			if (team == 0)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_KING);
+			else if (team == 1)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_KING);
+			else if (team == 2)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_KING);
+			else if (team == 3)
+				image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_KING);
+
+		}
 		return image1;
 	}
 
@@ -36,7 +44,7 @@ public class King extends Piece {
 			if (boardPiece[c.x - 1][c.y - 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
 					boardPiece[c.x - 1][c.y - 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x - 1][c.y - 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x - 1][c.y - 1].piece.team != TurnManager.turn && boardPiece[c.x - 1][c.y - 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
 					boardPiece[c.x - 1][c.y - 1].setBackground(ColorM.attackH);
 			}
@@ -47,7 +55,7 @@ public class King extends Piece {
 			if (boardPiece[c.x - 1][c.y].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]))
 					boardPiece[c.x - 1][c.y].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x - 1][c.y].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x - 1][c.y].piece.team != TurnManager.turn && boardPiece[c.x - 1][c.y].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]))
 					boardPiece[c.x - 1][c.y].setBackground(ColorM.attackH);
 			}
@@ -58,7 +66,7 @@ public class King extends Piece {
 			if (boardPiece[c.x - 1][c.y + 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
 					boardPiece[c.x - 1][c.y + 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x - 1][c.y + 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x - 1][c.y + 1].piece.team != TurnManager.turn && boardPiece[c.x - 1][c.y + 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
 					boardPiece[c.x - 1][c.y + 1].setBackground(ColorM.attackH);
 			}
@@ -69,7 +77,7 @@ public class King extends Piece {
 			if (boardPiece[c.x][c.y - 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y - 1]))
 					boardPiece[c.x][c.y - 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x][c.y - 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x][c.y - 1].piece.team != TurnManager.turn && boardPiece[c.x][c.y - 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y - 1]))
 					boardPiece[c.x][c.y - 1].setBackground(ColorM.attackH);
 			}
@@ -80,7 +88,7 @@ public class King extends Piece {
 			if (boardPiece[c.x][c.y + 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + 1]))
 					boardPiece[c.x][c.y + 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x][c.y + 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x][c.y + 1].piece.team != TurnManager.turn && boardPiece[c.x][c.y + 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + 1]))
 					boardPiece[c.x][c.y + 1].setBackground(ColorM.attackH);
 			}
@@ -91,7 +99,7 @@ public class King extends Piece {
 			if (boardPiece[c.x + 1][c.y - 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]))
 					boardPiece[c.x + 1][c.y - 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x + 1][c.y - 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x + 1][c.y - 1].piece.team != TurnManager.turn && boardPiece[c.x + 1][c.y - 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]))
 					boardPiece[c.x + 1][c.y - 1].setBackground(ColorM.attackH);
 			}
@@ -102,7 +110,7 @@ public class King extends Piece {
 			if (boardPiece[c.x + 1][c.y].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]))
 					boardPiece[c.x + 1][c.y].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x + 1][c.y].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x + 1][c.y].piece.team != TurnManager.turn && boardPiece[c.x + 1][c.y].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y]))
 					boardPiece[c.x + 1][c.y].setBackground(ColorM.attackH);
 			}
@@ -113,7 +121,7 @@ public class King extends Piece {
 			if (boardPiece[c.x + 1][c.y + 1].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
 					boardPiece[c.x + 1][c.y + 1].setBackground(ColorM.moveH);
-			} else if (boardPiece[c.x + 1][c.y + 1].piece.team != TurnManager.turn) {
+			} else if (boardPiece[c.x + 1][c.y + 1].piece.team != TurnManager.turn && boardPiece[c.x + 1][c.y + 1].piece.team > -1) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1]))
 					boardPiece[c.x + 1][c.y + 1].setBackground(ColorM.attackH);
 			}
