@@ -80,7 +80,7 @@ public class Pawn extends Piece {
             } catch (ArrayIndexOutOfBoundsException ignored) {}
             try {
                 if (boardPiece[c.x + 1][c.y - 1].image != null && boardPiece[c.x + 1][c.y - 1].piece.team % 2 == 0) {
-                    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+                    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y - 1]))
                         boardPiece[c.x + 1][c.y - 1].setBackground(new Color(255, 97, 160));
                 }
             } catch (ArrayIndexOutOfBoundsException ignored) {}
