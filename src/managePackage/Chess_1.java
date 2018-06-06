@@ -17,6 +17,7 @@ public class Chess_1 extends JFrame {
 	
 	private JPanel main = new JPanel();
 	private JPanel game1v1Panel = new JPanel();
+	private JPanel game2v2Panel = new JPanel();
 	private JLabel title = new JLabel("CHESS");
 	private JButton btnOne = new JButton("1vs1");
 	private JButton btnTwo = new JButton("2vs2");
@@ -30,7 +31,7 @@ public class Chess_1 extends JFrame {
 
 		main.setOpaque(true);
 		game1v1Panel.setOpaque(true);
-
+		game2v2Panel.setOpaque(true);
 
 		setTitle("CHESS");
 		setSize(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT);
@@ -62,7 +63,7 @@ public class Chess_1 extends JFrame {
 			public void mousePressed(MouseEvent e)
 			{
 				main.setVisible(false);
-				game1v1Panel = oneBoard.makeGamePanel();
+				game1v1Panel = oneBoard.makeGamePanel(1);
 
 				add(game1v1Panel);
 
@@ -95,7 +96,16 @@ public class Chess_1 extends JFrame {
 			}
 			public void mousePressed(MouseEvent e)
 			{
+				main.setVisible(false);
+				game2v2Panel = oneBoard.makeGamePanel(2);
 				
+				add(game2v2Panel);
+				gm.setPosition2(oneBoard.boardPiece);
+
+				MoveManager instance = MoveManager.getInstance();
+				instance.setBoard(oneBoard.boardPiece);
+				gm.initListener2(oneBoard.boardPiece);
+				game2v2Panel.setVisible(true);
 			}
 		});
 		

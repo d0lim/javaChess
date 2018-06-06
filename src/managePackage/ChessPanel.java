@@ -43,5 +43,8 @@ public class ChessPanel extends ImagePanel {
 	public void setIsKing(int team){
 		GameManager.kingC[team] = c;
 	}
+	public void setIsKing2(int team) {
+		GameManager.kingF[team] = c;
+	}
 
 }

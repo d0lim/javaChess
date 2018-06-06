@@ -16,5 +16,9 @@ public class TurnManager {
 		turn = turn%2;
 	}
 	
+	public void turnCheck2()
+	{
+		turn = turn%4;
+	}
 	
 }

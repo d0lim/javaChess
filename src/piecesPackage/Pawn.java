@@ -19,13 +19,15 @@ public class Pawn extends Piece {
 	{
 		BufferedImage image1 = null;
 		if(team == 0)
-			return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_PAWN);
 		else if(team == 1)
-			return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
-		else {
-            System.out.println("There's Error~ Fuck you~");
-            return instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_KING);
-        }
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_PAWN);
+		else if(team == 2)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_PAWN);
+		else if(team == 3)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_PAWN);
+		
+        return image1;
 	}
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {

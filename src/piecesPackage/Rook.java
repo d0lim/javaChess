@@ -21,6 +21,10 @@ public class Rook extends Piece {
             image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_LOOK);
         else if(team == 1)
             image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_LOOK);
+        else if(team == 2)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_LOOK);
+		else if(team == 3)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_LOOK);
         return image1;
     }
 

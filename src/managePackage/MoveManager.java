@@ -148,10 +148,10 @@ public class MoveManager {
 			label:
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < 8; j++) {
-					if (ChessBoard.deathPieceLeft[j][i].piece == null) {
-						ChessBoard.deathPieceLeft[j][i].setPiece(dPiece, 1);
-						ChessBoard.deathPieceLeft[j][i].setVisible(false);
-						ChessBoard.deathPieceLeft[j][i].setVisible(true);
+					if (ChessBoard.deathPieceLeft1v1[j][i].piece == null) {
+						ChessBoard.deathPieceLeft1v1[j][i].setPiece(dPiece, 1);
+						ChessBoard.deathPieceLeft1v1[j][i].setVisible(false);
+						ChessBoard.deathPieceLeft1v1[j][i].setVisible(true);
 						break label;
 					}
 				}
@@ -160,10 +160,10 @@ public class MoveManager {
 			label:
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < 8; j++) {
-					if (ChessBoard.deathPieceRight[j][i].piece == null) {
-						ChessBoard.deathPieceRight[j][i].setPiece(dPiece, 0);
-						ChessBoard.deathPieceRight[j][i].setVisible(false);
-						ChessBoard.deathPieceRight[j][i].setVisible(true);
+					if (ChessBoard.deathPieceRight1v1[j][i].piece == null) {
+						ChessBoard.deathPieceRight1v1[j][i].setPiece(dPiece, 0);
+						ChessBoard.deathPieceRight1v1[j][i].setVisible(false);
+						ChessBoard.deathPieceRight1v1[j][i].setVisible(true);
 						break label;
 					}
 				}

@@ -49,7 +49,6 @@ public class CheckCheck {
                 }
             } catch (ArrayIndexOutOfBoundsException ignore) { }
         }
-        System.out.println("룩, 퀸 검사 완료");
         // Bishop & Queen Check
 
         for (int i = -1; i < 2; i += 2) {
@@ -89,7 +88,7 @@ public class CheckCheck {
                 }
             } catch (ArrayIndexOutOfBoundsException ignore) {}
         }
-        System.out.println("비숍, 퀸 검사 완료");
+       
         // Pawn Check
 
         if(TurnManager.turn == 0) {
@@ -143,7 +142,6 @@ public class CheckCheck {
             } catch (ArrayIndexOutOfBoundsException ignore) {
             }
         }
-        System.out.println("폰 검사 완료");
         //Knight Check
         for (int i = -1; i < 2; i += 2) {
             for (int j = -1; j < 2; j += 2) {
@@ -173,7 +171,6 @@ public class CheckCheck {
                 } catch (ArrayIndexOutOfBoundsException ignored) {}
             }
         }
-        System.out.println("나이트 검사 완료");
         return 0;
     }
 }

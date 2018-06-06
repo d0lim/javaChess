@@ -21,6 +21,10 @@ public class Bishop extends Piece {
 			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_BISHOP);
 		else if(team == 1)
 			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.BLACK_BISHOP);
+		else if(team == 2)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.RED_BISHOP);
+		else if(team == 3)
+			image1 = instance.getChessPiece(ChessPieceSprite.ChessPieceSpriteType.GREEN_BISHOP);
 		return image1;
 	}
 	@Override
