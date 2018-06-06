@@ -12,8 +12,11 @@ public class Check1vs1 extends CheckCheck
     void CheckCM(ChessPanel[][] boardPiece, Coordinate kc) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (boardPiece[i][j].piece != null && boardPiece[i][j].piece.team%2 == TurnManager.turn % 2)
-                    boardPiece[i][j].piece.highlight(boardPiece, c);
+                if (boardPiece[i][j].piece != null) {
+                    if (boardPiece[i][j].piece.team % 2 == TurnManager.turn % 2) {
+                        boardPiece[i][j].piece.highlight(boardPiece, new Coordinate(i,j));
+                    }
+                }
             }
         }
         ColorCheck:

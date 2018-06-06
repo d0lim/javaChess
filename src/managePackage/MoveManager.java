@@ -73,7 +73,7 @@ public class MoveManager {
 			turnChecker.nextTurn();
 			turnChecker.turnCheck();
 
-			//checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
+			checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 			reInsertBMC();
 
 			System.out.println("reInsert Listener Completed");
@@ -104,7 +104,7 @@ public class MoveManager {
 
 			turnChecker.nextTurn();
 			turnChecker.turnCheck();
-			//checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
+			checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 
 			reInsertBMC();
 
