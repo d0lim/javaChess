@@ -3,6 +3,15 @@ package managePackage;
 
 
 public class TurnManager {
+	private static TurnManager turnManager = new TurnManager();
+
+	public static TurnManager getInstance() {
+		return turnManager;
+	}
+
+	private TurnManager() {
+
+	}
 	
 	public static int turn=0;
 
@@ -36,6 +45,7 @@ public class TurnManager {
 		else if(cmTeam == 3) {
 			turnArray[cmTeam] = 1;
 		}
+		turn = turnArray[index];
 	}
 
 	/*

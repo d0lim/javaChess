@@ -8,7 +8,7 @@ import piecesPackage.Wall;
 public class MoveManager {
 
 	private static MoveManager instance = new MoveManager();
-	TurnManager turnChecker = new TurnManager();
+	TurnManager turnChecker = TurnManager.getInstance();
 
 
 	private MoveManager() {
@@ -37,9 +37,10 @@ public class MoveManager {
 
 	public void move(int sequence, Coordinate destinationC) {
 		int turn;
-		CheckCheck checkInstance = CheckCheck.getInstance();
-		Check1vs1 checkInstance1 = Check1vs1.getInstance();
+
+
 		if(gameType == 1) {
+            Check1vs1 checkInstance1 = Check1vs1.getInstance();
 			if (sequence == 1) {
 				System.out.println("Highlighting Start");
 				for (int i = 0; i < 8; i++) {
@@ -124,6 +125,7 @@ public class MoveManager {
 			}
 		}
 		else {
+		    Check2vs2 checkInstance2 = Check2vs2.getInstance();
             if (sequence == 1) {
                 System.out.println("Highlighting Start");
                 for (int i = 0; i < 14; i++) {
@@ -165,7 +167,7 @@ public class MoveManager {
                 turnChecker.nextTurn2();
 
 
-                //checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
+                checkInstance2.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
                 reInsertBMC();
 
                 System.out.println("reInsert Listener Completed");
@@ -196,7 +198,7 @@ public class MoveManager {
 
                 turnChecker.nextTurn2();
 
-                //checkInstance1.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
+                checkInstance2.CheckCM(boardPiece,GameManager.kingC[TurnManager.turn]);
 
                 reInsertBMC();
 
