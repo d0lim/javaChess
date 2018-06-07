@@ -9,7 +9,7 @@ public class Pawn2 extends Pawn{
 
 	public Pawn2(int x, int y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
+
 	}
 	@Override
 	public void highlight(ChessPanel[][] boardPiece, Coordinate c) {

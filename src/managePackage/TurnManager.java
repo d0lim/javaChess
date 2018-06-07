@@ -33,6 +33,9 @@ public class TurnManager {
 	}
 
 	public void cmTurn(int cmTeam) {
+		if(turnArray[index] == turnArray[(index + 2) % 4])
+			return;
+
 		if(cmTeam == 0) {
 			turnArray[cmTeam] = 2;
 		}
