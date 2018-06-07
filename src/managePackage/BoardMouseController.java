@@ -8,12 +8,12 @@ import java.awt.event.MouseListener;
 public class BoardMouseController implements MouseListener{
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) {
         
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mousePressed(MouseEvent e) {
     	System.out.println("Start Point Clicked");
     	MoveManager instance = MoveManager.getInstance();
         ChessPanel selectedPanel = (ChessPanel)e.getSource();

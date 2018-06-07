@@ -6,12 +6,11 @@ import java.awt.event.MouseListener;
 
 public class PieceMouseController implements MouseListener {
     @Override
-    public void mousePressed(MouseEvent e) {
-        
+    public void mouseClicked(MouseEvent e) {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mousePressed(MouseEvent e) {
     	//Add Highlighting 'IF'
         Color moveH = new Color(145, 255, 228);
         Color attackH = new Color(255, 97, 160);
