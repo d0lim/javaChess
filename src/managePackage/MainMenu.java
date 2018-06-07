@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Chess_1 extends JFrame {
+public class MainMenu extends JFrame {
 	
 	private JPanel main = new JPanel();
 	private JPanel game1v1Panel = new JPanel();
@@ -27,7 +27,7 @@ public class Chess_1 extends JFrame {
 	ChessBoard oneBoard = new ChessBoard();
 	GameManager gm = new GameManager();
 	
-	public Chess_1() {
+	public MainMenu() {
 
 		main.setOpaque(true);
 		game1v1Panel.setOpaque(true);
@@ -60,8 +60,8 @@ public class Chess_1 extends JFrame {
 			{
 				btnOne.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
-			public void mousePressed(MouseEvent e)
-			{
+
+			public void mouseClicked(MouseEvent e) {
 				GameManager.gameType = 1;
 				main.setVisible(false);
 				game1v1Panel = oneBoard.makeGamePanel(1);
@@ -74,8 +74,6 @@ public class Chess_1 extends JFrame {
 				instance.setBoard(oneBoard.boardPiece);
 				gm.initListener(oneBoard.boardPiece);
 				game1v1Panel.setVisible(true);
-
-				
 			}
 		});
 		
@@ -95,7 +93,7 @@ public class Chess_1 extends JFrame {
 			{
 				btnTwo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
-			public void mousePressed(MouseEvent e)
+			public void mouseClicked(MouseEvent e)
 			{
 				GameManager.gameType = 2;
 				main.setVisible(false);
@@ -127,7 +125,7 @@ public class Chess_1 extends JFrame {
 			{
 				btnExit.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
-			public void mousePressed(MouseEvent e)
+			public void mouseClicked(MouseEvent e)
 			{
 				System.exit(0);
 			}

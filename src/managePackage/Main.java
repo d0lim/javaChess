@@ -6,7 +6,7 @@ public class Main {
 	public static final int SCREEN_HEIGHT = 720;
 	public static void main(String[] args)
 	{
-		Chess_1 ch1 = new Chess_1();
+		MainMenu ch1 = new MainMenu();
 		ch1.setVisible(true);
 	}
 }
