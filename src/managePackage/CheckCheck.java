@@ -171,6 +171,22 @@ public class CheckCheck {
                 } catch (ArrayIndexOutOfBoundsException ignored) {}
             }
         }
+
+        //King Check
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                try {
+                    if (boardPiece[kc.x + i][kc.y + j].piece != null) {
+                        if (boardPiece[kc.x + i][kc.y + j].piece.team % 2 != TurnManager.turn % 2) {
+                            if (boardPiece[kc.x + i][kc.y + j].piece.getClass().getName().equals("piecesPackage.King")) {
+                                return 1;
+                            }
+                        }
+                    }
+                } catch (ArrayIndexOutOfBoundsException ignored) {}
+            }
+        }
+
         return 0;
     }
 }
