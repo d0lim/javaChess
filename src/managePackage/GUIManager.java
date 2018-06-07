@@ -1,7 +1,12 @@
 package managePackage;
 
+import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
+import kr.ac.cau.mecs.lenerd.chess.ImagePanel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GUIManager {
     public void show1Chess() {
@@ -27,5 +32,62 @@ public class GUIManager {
         homeButton.setBounds(200, 170, 100, 100);
         homeButton.setBackground(new Color(177, 153, 255));
         return gameOver;
+    }
+
+    public static JPanel promotionPanel() {
+
+        JPanel pPanel = new JPanel();
+        JPanel innerPanel = new JPanel();
+        ImagePanel pQueen = new ImagePanel();
+        ImagePanel pBishop = new ImagePanel();
+        ImagePanel pRook = new ImagePanel();
+        ImagePanel pKnight = new ImagePanel();
+
+        pPanel.setLayout(null);
+        innerPanel.setLayout(new GridLayout(2, 2));
+        pQueen.setImage(ChessPieceSprite.getInstace().getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_QUEEN));
+        pBishop.setImage(ChessPieceSprite.getInstace().getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_BISHOP));
+        pRook.setImage(ChessPieceSprite.getInstace().getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_LOOK));
+        pKnight.setImage(ChessPieceSprite.getInstace().getChessPiece(ChessPieceSprite.ChessPieceSpriteType.WHITE_KNIGHT));
+        innerPanel.setSize(120, 120);
+        innerPanel.add(pQueen);
+        innerPanel.add(pBishop);
+        innerPanel.add(pRook);
+        innerPanel.add(pKnight);
+        pPanel.add(innerPanel);
+        innerPanel.setBounds(0, 60, 120, 120);
+        pQueen.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Add Promotion Code
+                //Maybe Include setVisible(false);
+            }
+        });
+        pBishop.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Add Promotion Code
+                //Maybe Include setVisible(false);
+            }
+        });
+        pRook.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Add Promotion Code
+                //Maybe Include setVisible(false);
+            }
+        });
+        pKnight.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                //Add Promotion Code
+                //Maybe Include setVisible(false);
+            }
+        });
+
+
+
+
+        return pPanel;
     }
 }

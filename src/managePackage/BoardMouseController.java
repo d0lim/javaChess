@@ -16,9 +16,10 @@ public class BoardMouseController implements MouseListener{
     public void mousePressed(MouseEvent e) {
     	System.out.println("Start Point Clicked");
     	MoveManager instance = MoveManager.getInstance();
+
         ChessPanel selectedPanel = (ChessPanel)e.getSource();
         if(TurnManager.turn == selectedPanel.piece.team) {
-            selectedPanel.setBackground(new Color(255, 248, 81));
+            selectedPanel.setBackground(ColorM.selectedH);
             Coordinate c = selectedPanel.getIndex();
             System.out.println("x is : " + c.x + ", y is " + c.y);
             instance.setPiece(c);

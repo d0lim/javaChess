@@ -12,27 +12,32 @@ public class PieceMouseController implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
     	//Add Highlighting 'IF'
-        Color moveH = new Color(145, 255, 228);
-        Color attackH = new Color(255, 97, 160);
 
         MoveManager instance = MoveManager.getInstance();
         ChessPanel destination = (ChessPanel)e.getSource();
-        if(destination.getBackground().equals(moveH)) {
+
+        if(destination.getBackground().equals(ColorM.moveH)) {
             System.out.println("Move Destination Clicked");
             Coordinate c = destination.getIndex();
             System.out.println("x is : " + c.x + ", y is " + c.y);
             instance.move(2, c);
         }
-        else if(destination.getBackground().equals(attackH)) {
+        else if(destination.getBackground().equals(ColorM.attackH)) {
             System.out.println("Attacking!");
             Coordinate c = destination.getIndex();
             System.out.println("x is : " + c.x + ", y is " + c.y);
             instance.move(3, c);
         }
-        else {
-
-            instance.move(4, null);
+        else if(destination.getBackground().equals(ColorM.SpecialH)) {
+            Coordinate c = destination.getIndex();
+            instance.move( 4, c);
         }
+        else if(destination.getBackground().equals(ColorM.SpecialAH)){
+            Coordinate c = destination.getIndex();
+            instance.move( 5, c);
+        }
+        else
+            instance.move(6, null);
         
     }
 

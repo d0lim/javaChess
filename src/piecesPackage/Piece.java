@@ -15,7 +15,9 @@ public abstract class Piece implements Highlight{
 	public int x;
 	public int y;
 	public int team;
-	boolean alive = true;
+
+	public boolean SpecialMove = false;
+
 	SelfRiskCheck src = new SelfRiskCheck();
 
 	protected Piece() {

@@ -1,7 +1,6 @@
 package managePackage;
 
-public class Check1vs1 extends CheckCheck
-{
+public class Check1vs1 extends CheckCheck {
     private static Check1vs1 instance1 = new Check1vs1();
     boolean movable = true;
 
@@ -39,14 +38,43 @@ public class Check1vs1 extends CheckCheck
             }
         }
         if (!movable) {
-            if (checkCheck(boardPiece, kc) == 1)
+            if (checkCheck(boardPiece, kc) == 1) {
+                boardPiece[kc.x][kc.y].setBackground(ColorM.checkedH);
                 System.out.println("\nCHECKMATE!!!!!!!!\n");
-            else
+                CM = true;
+                Coloring(boardPiece, kc);
+
+            } else {
                 System.out.println("\nSTALEMATE!!!!!!!!\n");
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if (boardPiece[i][j].piece != null && boardPiece[i][j].piece.team % 2 == TurnManager.turn % 2)
+                            boardPiece[i][j].setBackground(ColorM.selectedH);
+                    }
+                }
+            }
         }
         else {
-            if (checkCheck(boardPiece, kc) == 1)
-                System.out.println("\nCHECK!!!!!!!!\n");
+            if (checkCheck(boardPiece, kc) == 1) {
+                GameManager.Checked[TurnManager.turn] = true;
+                boardPiece[kc.x][kc.y].setBackground(ColorM.checkedH);
+            }
+        }
+    }
+    void Coloring(ChessPanel[][] boardPiece, Coordinate kc) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                try {
+                    if(boardPiece[kc.x - 1 + i][kc.y - 1 + j].piece == null)
+                        checkCheck(boardPiece, new Coordinate(kc.x - 1 + i, kc.y - 1 + j));
+                    else {
+                        if (boardPiece[kc.x - 1 + i][kc.y - 1 + j].piece.team % 2 != TurnManager.turn % 2)
+                            checkCheck(boardPiece, new Coordinate(kc.x - 1 + i, kc.y - 1 + j));
+                    }
+
+                } catch (ArrayIndexOutOfBoundsException ignore) {}
+            }
         }
     }
 }
+

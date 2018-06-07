@@ -2,6 +2,7 @@ package piecesPackage;
 
 import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
+import managePackage.ColorM;
 import managePackage.Coordinate;
 import managePackage.GameManager;
 
@@ -47,24 +48,24 @@ public class Knight extends Piece {
 				try {
                     if (boardPiece[c.x + i][c.y + 2 * j].piece == null) {
                         if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
-                            boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(145, 255, 228));
+                            boardPiece[c.x + i][c.y + 2 * j].setBackground(ColorM.moveH);
                     }
                     else {
                         if (boardPiece[c.x + i][c.y + 2 * j].piece.team % 2 != this.team % 2 && boardPiece[c.x + i][c.y + 2 * j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + i][c.y + 2 * j]))
-                                boardPiece[c.x + i][c.y + 2 * j].setBackground(new Color(255, 97, 160));
+                                boardPiece[c.x + i][c.y + 2 * j].setBackground(ColorM.attackH);
                         }
                     }
 				} catch (ArrayIndexOutOfBoundsException ignored) {}
                 try {
                     if (boardPiece[c.x + 2 * i][c.y + j].piece == null) {
                         if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
-                            boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(145, 255, 228));
+                            boardPiece[c.x + 2 * i][c.y + j].setBackground(ColorM.moveH);
                     }
                     else {
                         if (boardPiece[c.x + 2 * i][c.y + j].piece.team % 2 != this.team % 2 && boardPiece[c.x + 2 * i][c.y + j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 2 * i][c.y + j]))
-                                boardPiece[c.x + 2 * i][c.y + j].setBackground(new Color(255, 97, 160));
+                                boardPiece[c.x + 2 * i][c.y + j].setBackground(ColorM.attackH);
                         }
                     }
                 } catch (ArrayIndexOutOfBoundsException ignored) {}

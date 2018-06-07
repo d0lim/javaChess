@@ -36,10 +36,6 @@ public class ChessBoard {
         	deathPanel[0].setBounds(170, 60, 600 / 4, 600);
         	deathPanel[1].setBounds(960, 60, 600 / 4, 600);
 
-        /*JPanel forTitle = new JPanel();
-        forTitle.setSize(1280, 145);
-        game1v1Panel.add(forTitle, BorderLayout.NORTH);
-        */
         	return gamePanel;
         }
         else
@@ -81,9 +77,9 @@ public class ChessBoard {
 					boardPiece[i][j].setSize(600 / 8, 600 / 8);
 					boardPiece[i][j].setOpaque(true);
 					if ((j + i) % 2 == 0)
-						boardPiece[i][j].setBackground(new Color(219, 219, 219));
+						boardPiece[i][j].setBackground(ColorM.origin1H);
 					else
-						boardPiece[i][j].setBackground(new Color(156, 156, 156));
+						boardPiece[i][j].setBackground(ColorM.origin2H);
 
 					boardPanel.add(boardPiece[i][j]);
 
@@ -92,7 +88,8 @@ public class ChessBoard {
 				}
 			}
 			return boardPanel;
-		} else {
+		}
+		else {
 			boardPiece = new ChessPanel[14][14];
 			boardPanel.setPreferredSize(new Dimension(400, 400));
 
@@ -104,9 +101,9 @@ public class ChessBoard {
 					boardPiece[i][j].setSize(400 / 14, 400 / 14);
 					boardPiece[i][j].setOpaque(true);
 					if ((j + i) % 2 == 0)
-						boardPiece[i][j].setBackground(new Color(219, 219, 219));
+						boardPiece[i][j].setBackground(ColorM.origin1H);
 					else
-						boardPiece[i][j].setBackground(new Color(156, 156, 156));
+						boardPiece[i][j].setBackground(ColorM.origin2H);
 
 					boardPanel.add(boardPiece[i][j]);
 
@@ -114,32 +111,24 @@ public class ChessBoard {
 
 				}
 			}
-			for(i = 0;i<3;i++)
-			{
-				for(j = 0;j<3;j++)
-				{
-					boardPiece[i][j].setBackground(new Color(0, 0, 0));
+			for(i = 0;i<3;i++) {
+				for(j = 0;j<3;j++) {
+					boardPiece[i][j].setBackground(ColorM.WallH);
 				}
 			}
-			for(i = 11;i<14;i++)
-			{
-				for(j = 0;j<3;j++)
-				{
-					boardPiece[i][j].setBackground(new Color(0, 0, 0));
+			for(i = 11;i<14;i++) {
+				for(j = 0;j<3;j++) {
+					boardPiece[i][j].setBackground(ColorM.WallH);
 				}
 			}
-			for(i = 0;i<3;i++)
-			{
-				for(j = 11;j<14;j++)
-				{
-					boardPiece[i][j].setBackground(new Color(0, 0, 0));
+			for(i = 0;i<3;i++) {
+				for(j = 11;j<14;j++) {
+					boardPiece[i][j].setBackground(ColorM.WallH);
 				}
 			}
-			for(i = 11;i<14;i++)
-			{
-				for(j = 11;j<14;j++)
-				{
-					boardPiece[i][j].setBackground(new Color(0, 0, 0));
+			for(i = 11;i<14;i++) {
+				for(j = 11;j<14;j++) {
+					boardPiece[i][j].setBackground(ColorM.WallH);
 				}
 			}
 			return boardPanel;
@@ -166,7 +155,7 @@ public class ChessBoard {
 					deathPieceLeft1v1[i][j] = new ChessPanel();
 					deathPieceLeft1v1[i][j].setSize(600 / 8, 600 / 8);
 					deathPieceLeft1v1[i][j].setOpaque(true);
-					deathPieceLeft1v1[i][j].setBackground(new Color(68, 126, 150, 255));
+					deathPieceLeft1v1[i][j].setBackground(ColorM.BackH);
 					deathPieceLeft1v1[i][j].setIndex(i, j);
 					deathPanel[0].add(deathPieceLeft1v1[i][j]);
 				}
@@ -176,7 +165,7 @@ public class ChessBoard {
 					deathPieceRight1v1[i][j] = new ChessPanel();
 					deathPieceRight1v1[i][j].setSize(600 / 8, 600 / 8);
 					deathPieceRight1v1[i][j].setOpaque(true);
-					deathPieceRight1v1[i][j].setBackground(new Color(68, 126, 150, 255));
+					deathPieceRight1v1[i][j].setBackground(ColorM.BackH);
 					deathPieceRight1v1[i][j].setIndex(i, j);
 					deathPanel[1].add(deathPieceRight1v1[i][j]);
 				}
@@ -207,7 +196,7 @@ public class ChessBoard {
 					deathPieceDown2v2[j][i] = new ChessPanel();
 					deathPieceDown2v2[j][i].setSize(500 / 14, 500 / 14);
 					deathPieceDown2v2[j][i].setOpaque(true);
-					deathPieceDown2v2[j][i].setBackground(new Color(68, 126, 150, 255));
+					deathPieceDown2v2[j][i].setBackground(ColorM.BackH);
 					deathPieceDown2v2[j][i].setIndex(j, i);
 					deathPanel[0].add(deathPieceDown2v2[j][i]);
 				}
@@ -217,7 +206,7 @@ public class ChessBoard {
 					deathPieceLeft2v2[i][j] = new ChessPanel();
 					deathPieceLeft2v2[i][j].setSize(500 / 14, 500 / 14);
 					deathPieceLeft2v2[i][j].setOpaque(true);
-					deathPieceLeft2v2[i][j].setBackground(new Color(68, 126, 150, 255));
+					deathPieceLeft2v2[i][j].setBackground(ColorM.BackH);
 					deathPieceLeft2v2[i][j].setIndex(i, j);
 					deathPanel[1].add(deathPieceLeft2v2[i][j]);
 				}
@@ -227,7 +216,7 @@ public class ChessBoard {
 					deathPieceUp2v2[i][j] = new ChessPanel();
 					deathPieceUp2v2[i][j].setSize(500 / 14, 500 / 14);
 					deathPieceUp2v2[i][j].setOpaque(true);
-					deathPieceUp2v2[i][j].setBackground(new Color(68, 126, 150, 255));
+					deathPieceUp2v2[i][j].setBackground(ColorM.BackH);
 					deathPieceUp2v2[i][j].setIndex(i, j);
 					deathPanel[2].add(deathPieceUp2v2[i][j]);
 				}
@@ -237,7 +226,7 @@ public class ChessBoard {
 					deathPieceRight2v2[j][i] = new ChessPanel();
 					deathPieceRight2v2[j][i].setSize(500 / 14, 500 / 14);
 					deathPieceRight2v2[j][i].setOpaque(true);
-					deathPieceRight2v2[j][i].setBackground(new Color(68, 126, 150, 255));
+					deathPieceRight2v2[j][i].setBackground(ColorM.BackH);
 					deathPieceRight2v2[j][i].setIndex(j, i);
 					deathPanel[3].add(deathPieceRight2v2[j][i]);
 				}

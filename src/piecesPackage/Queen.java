@@ -2,6 +2,7 @@ package piecesPackage;
 
 import managePackage.ChessPanel;
 import kr.ac.cau.mecs.lenerd.chess.ChessPieceSprite;
+import managePackage.ColorM;
 import managePackage.Coordinate;
 import managePackage.GameManager;
 
@@ -46,12 +47,12 @@ public class Queen extends Piece {
                 for (int j = 1;; j++) {
                         if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece == null) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
-                                boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(145, 255, 228));
+                                boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(ColorM.moveH);
                         }
                         else {
                             if (boardPiece[c.x + (i) * j][c.y + (i) * j].piece.team % 2 != this.team % 2 && boardPiece[c.x + i * j][c.y + i * j].piece.team > -1) {
                                 if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y + (i) * j]))
-                                    boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(new Color(255, 97, 160));
+                                    boardPiece[c.x + (i) * j][c.y + (i) * j].setBackground(ColorM.attackH);
                             }
                             break;
                         }
@@ -63,12 +64,12 @@ public class Queen extends Piece {
                 for (int j = 1;; j++) {
                     if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece == null) {
                         if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
-                            boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(145, 255, 228));
+                            boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(ColorM.moveH);
                     }
                     else {
                         if (boardPiece[c.x + (i) * j][c.y - (i) * j].piece.team % 2 != this.team % 2 && boardPiece[c.x + i * j][c.y - i * j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y - (i) * j]))
-                                boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(new Color(255, 97, 160));
+                                boardPiece[c.x + (i) * j][c.y - (i) * j].setBackground(ColorM.attackH);
                         }
                         break;
                     }
@@ -81,12 +82,12 @@ public class Queen extends Piece {
                 for (int j = 1;; j++) {
                         if (boardPiece[c.x + (i) * j][c.y].piece == null) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y]))
-                                boardPiece[c.x + (i) * j][c.y].setBackground(new Color(145, 255, 228));
+                                boardPiece[c.x + (i) * j][c.y].setBackground(ColorM.moveH);
                         }
                         else {
                             if (boardPiece[c.x + (i) * j][c.y].piece.team % 2 != this.team % 2 && boardPiece[c.x + i * j][c.y].piece.team > -1) {
                                 if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + (i) * j][c.y]))
-                                    boardPiece[c.x + (i) * j][c.y].setBackground(new Color(255, 97, 160));
+                                    boardPiece[c.x + (i) * j][c.y].setBackground(ColorM.attackH);
                             }
                                 break;
                         }
@@ -98,12 +99,12 @@ public class Queen extends Piece {
                 for (int j = 1;; j++) {
                     if (boardPiece[c.x][c.y + (i) * j].piece == null) {
                         if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + (i) * j]))
-                            boardPiece[c.x][c.y + (i) * j].setBackground(new Color(145, 255, 228));
+                            boardPiece[c.x][c.y + (i) * j].setBackground(ColorM.moveH);
                     }
                     else {
                         if (boardPiece[c.x][c.y + (i) * j].piece.team % 2 != this.team % 2 && boardPiece[c.x][c.y + i * j].piece.team > -1) {
                             if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x][c.y + (i) * j]))
-                                boardPiece[c.x][c.y + (i) * j].setBackground(new Color(255, 97, 160));
+                                boardPiece[c.x][c.y + (i) * j].setBackground(ColorM.attackH);
                         }
                         break;
                     }

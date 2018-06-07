@@ -7,6 +7,7 @@ public class GameManager {
 	static BoardMouseController boardMouseController = new BoardMouseController();
 	static PieceMouseController pieceMouseController = new PieceMouseController();
 	static Coordinate[] kingC = new Coordinate[4];
+	public static boolean Checked[] = {false, false, false, false};
 
 	void initListener(ChessPanel[][] boardPiece) {
 		for(int i = 0; i < 8; i++) {
@@ -16,7 +17,6 @@ public class GameManager {
 			}
 		}
 	}
-	
 	void initListener2(ChessPanel[][] boardPiece)
 	{
 		for(int i = 0; i < 14; i++) {
@@ -82,9 +82,9 @@ public class GameManager {
 		boardPiece[0][10].setPiece(new Rook(0, 10), 2);
 		boardPiece[0][5].setPiece(new Bishop(0, 5), 2);
 		boardPiece[0][8].setPiece(new Bishop(0, 8), 2);
-		boardPiece[0][6].setPiece(new Queen(0, 6), 2);
-		boardPiece[0][7].setPiece(new King(0, 7), 2);
-		kingC[2] = new Coordinate(0, 7);
+		boardPiece[0][7].setPiece(new Queen(0, 6), 2);
+		boardPiece[0][6].setPiece(new King(0, 7), 2);
+		kingC[2] = new Coordinate(0, 6);
 		
 		boardPiece[12][3].setPiece(new Pawn2(12, 3), 0);
 		boardPiece[12][4].setPiece(new Pawn2(12, 4), 0);
@@ -118,9 +118,9 @@ public class GameManager {
 		boardPiece[10][0].setPiece(new Rook(10, 0), 1);
 		boardPiece[5][0].setPiece(new Bishop(5, 0), 1);
 		boardPiece[8][0].setPiece(new Bishop(8, 0), 1);
-		boardPiece[6][0].setPiece(new Queen(6, 0), 1);
-		boardPiece[7][0].setPiece(new King(7, 0), 1);
-		kingC[1] = new Coordinate(7, 0);
+		boardPiece[7][0].setPiece(new Queen(6, 0), 1);
+		boardPiece[6][0].setPiece(new King(7, 0), 1);
+		kingC[1] = new Coordinate(6, 0);
 		
 		boardPiece[3][12].setPiece(new Pawn2(3, 12), 3);
 		boardPiece[4][12].setPiece(new Pawn2(4, 12), 3);

@@ -27,19 +27,17 @@ public class SelfRiskCheck {
 	}
 	public void invisibleMove(ChessPanel start, ChessPanel dest)
 	{
-
-		if(start.c.x == GameManager.kingC[TurnManager.turn].x && start.c.y == GameManager.kingC[TurnManager.turn].y) {
+		if(start.c.x == GameManager.kingC[TurnManager.turn].x && start.c.y == GameManager.kingC[TurnManager.turn].y)
 			dest.setIsKing(TurnManager.turn);
-		}
 		temp = dest.piece;
 		dest.piece = start.piece;
 		start.piece = null;
 	}
+
 	public void moveReturn(ChessPanel start, ChessPanel dest)
 	{
-		if(dest.c.x == GameManager.kingC[TurnManager.turn].x && dest.c.y == GameManager.kingC[TurnManager.turn].y) {
+		if(dest.c.x == GameManager.kingC[TurnManager.turn].x && dest.c.y == GameManager.kingC[TurnManager.turn].y)
 			start.setIsKing(TurnManager.turn);
-		}
 		start.piece = dest.piece;
 		dest.piece = temp;
 	}
