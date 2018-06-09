@@ -17,6 +17,7 @@ public class ChessBoard {
     public static ChessPanel[][] deathPieceUp2v2;
     public static ChessPanel[][] deathPieceDown2v2;
         public JPanel makeGamePanel(int type) {
+        	gamePanel.removeAll();
         if(type == 1)
         {	
         	JPanel boardPanel;
@@ -32,9 +33,9 @@ public class ChessBoard {
         	gamePanel.add(deathPanel[0]);
         	gamePanel.add(deathPanel[1]);
         
-        	boardPanel.setBounds(340, 60, 600, 600);
-        	deathPanel[0].setBounds(170, 60, 600 / 4, 600);
-        	deathPanel[1].setBounds(960, 60, 600 / 4, 600);
+        	boardPanel.setBounds(185, 60, 600, 600);
+        	deathPanel[0].setBounds(20, 60, 600 / 4, 600);
+        	deathPanel[1].setBounds(810, 60, 600 / 4, 600);
 
         	return gamePanel;
         }
@@ -64,7 +65,7 @@ public class ChessBoard {
     }
 
     public JPanel makeBoard(int type) {
-
+		boardPanel.removeAll();
 		if (type == 1) {
 			boardPiece = new ChessPanel[8][8];
 			boardPanel.setPreferredSize(new Dimension(600, 600));
@@ -136,6 +137,7 @@ public class ChessBoard {
     }
 
     public JPanel[] makeDeathBoard(int type) {
+
         if(type == 1)
 		{
 			JPanel[] deathPanel = new JPanel[2];
@@ -184,21 +186,21 @@ public class ChessBoard {
 			deathPieceUp2v2 = new ChessPanel[2][8];
 			deathPieceDown2v2 = new ChessPanel[2][8];
 			//deathPanel[0].setSize(400 / 14, 400);
-			deathPanel[0].setLayout(new GridLayout(8, 2));
+			deathPanel[0].setLayout(new GridLayout(2, 8));
 			//deathPanel[1].setSize(400 / 14, 400);
 			deathPanel[1].setLayout(new GridLayout(8, 2));
 			//deathPanel[2].setSize(400, 400 / 14);
 			deathPanel[2].setLayout(new GridLayout(2, 8));
 			//deathPanel[3].setSize(400, 400 / 14);
-			deathPanel[3].setLayout(new GridLayout(2, 8));
-			for (i = 0; i < 8; i++) {
-				for (j = 0; j < 2; j++) {
-					deathPieceDown2v2[j][i] = new ChessPanel();
-					deathPieceDown2v2[j][i].setSize(500 / 14, 500 / 14);
-					deathPieceDown2v2[j][i].setOpaque(true);
-					deathPieceDown2v2[j][i].setBackground(ColorM.BackH);
-					deathPieceDown2v2[j][i].setIndex(j, i);
-					deathPanel[0].add(deathPieceDown2v2[j][i]);
+			deathPanel[3].setLayout(new GridLayout(8, 2));
+			for (i = 0; i < 2; i++) {
+				for (j = 0; j < 8; j++) {
+					deathPieceDown2v2[i][j] = new ChessPanel();
+					deathPieceDown2v2[i][j].setSize(500 / 14, 500 / 14);
+					deathPieceDown2v2[i][j].setOpaque(true);
+					deathPieceDown2v2[i][j].setBackground(ColorM.BackH);
+					deathPieceDown2v2[i][j].setIndex(i, j);
+					deathPanel[0].add(deathPieceDown2v2[i][j]);
 				}
 			}
 			for (i = 0; i < 8; i++) {
@@ -221,14 +223,14 @@ public class ChessBoard {
 					deathPanel[2].add(deathPieceUp2v2[i][j]);
 				}
 			}
-			for (i = 0; i < 2; i++) {
-				for (j = 0; j < 8; j++) {
-					deathPieceRight2v2[j][i] = new ChessPanel();
-					deathPieceRight2v2[j][i].setSize(500 / 14, 500 / 14);
-					deathPieceRight2v2[j][i].setOpaque(true);
-					deathPieceRight2v2[j][i].setBackground(ColorM.BackH);
-					deathPieceRight2v2[j][i].setIndex(j, i);
-					deathPanel[3].add(deathPieceRight2v2[j][i]);
+			for (i = 0; i < 8; i++) {
+				for (j = 0; j < 2; j++) {
+					deathPieceRight2v2[i][j] = new ChessPanel();
+					deathPieceRight2v2[i][j].setSize(500 / 14, 500 / 14);
+					deathPieceRight2v2[i][j].setOpaque(true);
+					deathPieceRight2v2[i][j].setBackground(ColorM.BackH);
+					deathPieceRight2v2[i][j].setIndex(i, j);
+					deathPanel[3].add(deathPieceRight2v2[i][j]);
 				}
 			}
 			return deathPanel;

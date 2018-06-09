@@ -52,33 +52,57 @@ public class Pawn extends Piece {
 				moveC = ColorM.SpecialH;
 				attackC = ColorM.SpecialAH;
 			}
-			if (boardPiece[c.x - 1][c.y].piece == null) {
-			    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y])) {
-                    boardPiece[c.x - 1][c.y].setBackground(moveC);
-                }
+			if (c.x == 3) {
+				try {//?숉뙆??/
+					if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1])) {
+						if (boardPiece[c.x][c.y - 1].piece != null &&
+								boardPiece[c.x][c.y - 1].piece.getClass().getName().equals("piecesPackage.Pawn")) {
+							if (boardPiece[c.x][c.y - 1].piece.SpecialMove)
+								boardPiece[c.x - 1][c.y - 1].setBackground(ColorM.SpecialAH);
+						}
+					}
+				} catch (ArrayIndexOutOfBoundsException ignored) {
+				}
 			}
-            if (c.x == 6 && (boardPiece[c.x - 2][c.y].piece == null && boardPiece[c.x - 1][c.y].piece == null)) {
-                if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
-                    boardPiece[c.x - 2][c.y].setBackground(moveC);
-            }
+			if (boardPiece[c.x - 1][c.y].piece == null) {
+				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y]))
+					boardPiece[c.x - 1][c.y].setBackground(moveC);
+			}
+			if (c.x == 6 && (boardPiece[c.x - 2][c.y].piece == null && boardPiece[c.x - 1][c.y].piece == null)) {
+				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 2][c.y]))
+					boardPiece[c.x - 2][c.y].setBackground(moveC);
+			}
 
 			try {
 				if (boardPiece[c.x - 1][c.y + 1].piece != null && boardPiece[c.x - 1][c.y + 1].piece.team % 2 == 1) {
-				    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
-                        boardPiece[c.x - 1][c.y + 1].setBackground(attackC);
-                }
-			} catch (ArrayIndexOutOfBoundsException ignored) {}
+					if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y + 1]))
+						boardPiece[c.x - 1][c.y + 1].setBackground(attackC);
+				}
+			} catch (ArrayIndexOutOfBoundsException ignored) {
+			}
 			try {
 				if (boardPiece[c.x - 1][c.y - 1].piece != null && boardPiece[c.x - 1][c.y - 1].piece.team % 2 == 1) {
-				    if(!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
-                        boardPiece[c.x - 1][c.y - 1].setBackground(attackC);
-                }
-			} catch (ArrayIndexOutOfBoundsException ignored) {}
-
-		} else if (this.team == 1) {
+					if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x - 1][c.y - 1]))
+						boardPiece[c.x - 1][c.y - 1].setBackground(attackC);
+				}
+			} catch (ArrayIndexOutOfBoundsException ignored) {
+			}
+		}
+		else if (this.team == 1) {
 			if (c.x == 6) {
 				moveC = ColorM.SpecialH;
 				attackC = ColorM.SpecialAH;
+			}
+			if (c.x == 4) {
+				try {//?숉뙆??/
+					if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y + 1])) {
+						if (boardPiece[c.x][c.y + 1].piece != null &&
+								boardPiece[c.x][c.y + 1].piece.getClass().getName().equals("piecesPackage.Pawn")) {
+							if (boardPiece[c.x][c.y + 1].piece.SpecialMove)
+								boardPiece[c.x + 1][c.y + 1].setBackground(ColorM.SpecialAH);
+						}
+					}
+				} catch (ArrayIndexOutOfBoundsException ignored) { }
 			}
 			if (boardPiece[c.x + 1][c.y].piece == null) {
 				if (!src.selfrisk(boardPiece, boardPiece[c.x][c.y], boardPiece[c.x + 1][c.y])) {

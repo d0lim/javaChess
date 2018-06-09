@@ -17,6 +17,7 @@ public class Check1vs1 extends CheckCheck {
                     }
                 }
             }
+
         }
         ColorCheck:
         for (int i = 0; i < 8; i++) {
@@ -43,6 +44,7 @@ public class Check1vs1 extends CheckCheck {
                 System.out.println("\nCHECKMATE!!!!!!!!\n");
                 CM = true;
                 Coloring(boardPiece, kc);
+                GUIManager.showWinner1();
 
             } else {
                 System.out.println("\nSTALEMATE!!!!!!!!\n");
@@ -52,6 +54,7 @@ public class Check1vs1 extends CheckCheck {
                             boardPiece[i][j].setBackground(ColorM.selectedH);
                     }
                 }
+                GUIManager.showDraw();
             }
         }
         else {

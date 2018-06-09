@@ -44,4 +44,14 @@ public class TurnManager {
 		}
 		turn = turnArray[index];
 	}
+
+	public void resetTurn() {
+		index = 0;
+		turn = 0;
+		int j = 0;
+		for(int i = 0; i < 4; i++) {
+			turnArray[i] = j;
+			j++;
+		}
+	}
 }

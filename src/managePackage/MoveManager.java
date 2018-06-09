@@ -1,9 +1,12 @@
 package managePackage;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import piecesPackage.Piece;
-import piecesPackage.Queen;
+import piecesPackage.*;
+
+import javax.swing.*;
 
 public class MoveManager {
 
@@ -180,6 +183,7 @@ public class MoveManager {
                 if (sequence >= 4)
                     SpecialRule(boardPiece, destinationC);
 
+
                 boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(false);
                 boardPiece[selectedCoordinate.x][selectedCoordinate.y].setVisible(true);
                 boardPiece[destinationC.x][destinationC.y].setVisible(false);
@@ -235,14 +239,32 @@ public class MoveManager {
 		}
 
 	}
+
+
     void SpecialRule(ChessPanel[][] boardPiece, Coordinate destC) {
         if (boardPiece[destC.x][destC.y].piece.team == 0) {
             if (destC.x == 0) {  // Promotion
 
+
+
                 // Piece UPiece = 쏼라쏼라쏼라쏼라 : GUI창에서 정해짐
                 boardPiece[destC.x][destC.y].resetPiece();
                 // boardPiece[destC.x][destC.y].setPiece(UPiece);
-                boardPiece[destC.x][destC.y].setPiece(new Queen(destC.x, destC.y), 0); //예시
+                String []promotion = {"Knight", "Queen", "Bishop", "Rook"};
+                Object decision = JOptionPane.showInputDialog(null, "승격할 말을 정하시오", "승격", JOptionPane.QUESTION_MESSAGE, null, promotion, promotion[0]);
+                // Piece UPiece = ?�눖�뵬?�눖�뵬?�눖�뵬?�눖�뵬 : GUI筌≪럩肉�???類λ퉸筌�?
+                boardPiece[destC.x][destC.y].resetPiece();
+                // boardPiece[destC.x][destC.y].setPiece(UPiece);
+                if(decision.equals("Knight"))
+                    boardPiece[destC.x][destC.y].setPiece(new Knight(destC.x, destC.y), 0); //?�뜆�뻻
+                if(decision.equals("Queen"))
+                    boardPiece[destC.x][destC.y].setPiece(new Queen(destC.x, destC.y), 0);
+                if(decision.equals("Bishop"))
+                    boardPiece[destC.x][destC.y].setPiece(new Bishop(destC.x, destC.y), 0);
+                if(decision.equals("Rook"))
+                    boardPiece[destC.x][destC.y].setPiece(new Rook(destC.x, destC.y), 0);
+
+
             }
         } else if (boardPiece[destC.x][destC.y].piece.team == 1) {
             if (destC.x == 7) {
@@ -250,8 +272,19 @@ public class MoveManager {
                 // Piece UPiece = 쏼라쏼라쏼라쏼라 : GUI창에서 정해짐
                 boardPiece[destC.x][destC.y].resetPiece();
                 // boardPiece[destC.x][destC.y].setPiece(UPiece);
-                boardPiece[destC.x][destC.y].setPiece(new Queen(destC.x, destC.y), 1);  //예시
-            }
+                String []promotion = {"Knight", "Queen", "Bishop", "Rook"};
+                Object decision = JOptionPane.showInputDialog(null, "승격할 말을 정하시오", "승격", JOptionPane.QUESTION_MESSAGE, null, promotion, promotion[0]);
+                // Piece UPiece = ?�눖�뵬?�눖�뵬?�눖�뵬?�눖�뵬 : GUI筌≪럩肉�???類λ퉸筌�?
+                boardPiece[destC.x][destC.y].resetPiece();
+                // boardPiece[destC.x][destC.y].setPiece(UPiece);
+                if(decision.equals("Knight"))
+                    boardPiece[destC.x][destC.y].setPiece(new Knight(destC.x, destC.y), 1); //?�뜆�뻻
+                if(decision.equals("Queen"))
+                    boardPiece[destC.x][destC.y].setPiece(new Queen(destC.x, destC.y), 1);
+                if(decision.equals("Bishop"))
+                    boardPiece[destC.x][destC.y].setPiece(new Bishop(destC.x, destC.y), 1);
+                if(decision.equals("Rook"))
+                    boardPiece[destC.x][destC.y].setPiece(new Rook(destC.x, destC.y), 1);            }
         }
         if (boardPiece[destC.x][destC.y].piece.team == 0) {
             if (destC.x == 2) {  // 앙파상
